@@ -7,9 +7,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
-import {getNewBooks} from '@/api/book'
+import {getNewBooks} from '@/config/api/book'
 import {BookType} from '@/types/book'
 import CardBook from './card-book'
+import Link from 'next/link'
 
 export default function NewReleasesCarousel(): React.ReactNode {
   const {data, isLoading, error} = getNewBooks()
@@ -19,7 +20,14 @@ export default function NewReleasesCarousel(): React.ReactNode {
 
   return (
     <>
-      <h2 className="text-3xl font-bold mb-4">New releases</h2>
+      <h2 className="text-3xl font-bold mb-4">
+        <Link
+          href="/books/new"
+          className="border-b-2 border-transparent hover:border-primary transition-all duration-200"
+        >
+          New Releases
+        </Link>
+      </h2>
       <Carousel
         opts={{
           align: 'start',

@@ -1,10 +1,12 @@
-import {useState} from 'react'
-import {getBook} from '@/api/book'
+'use client'
+
+import {getBook} from '@/config/api/book'
 import {BookType} from '@/types/book'
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from './ui/card'
 import Image from 'next/image'
 import {Check, Heart, ShoppingCart, Star} from 'lucide-react'
 import {Button} from './ui/button'
+import {useState} from 'react'
 
 export default function CardBook({
   title,

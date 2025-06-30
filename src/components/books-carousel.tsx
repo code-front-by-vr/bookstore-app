@@ -7,24 +7,34 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
-import {getBooksByCategory} from '@/api/book'
-import {BookType} from '@/types/book'
+import {getBooksByCategory} from '@/config/api/book'
+import {BookType, BooksCarouselProps} from '@/types/book'
 import CardBook from './card-book'
+import Link from 'next/link'
 
-interface BooksListProps {
-  category: string
-  title?: string
-}
-
-export default function BooksCarousel({category, title}: BooksListProps): React.ReactNode {
+export default function BooksCarousel({category, title}: BooksCarouselProps): React.ReactNode {
   const {data, isLoading, error} = getBooksByCategory(category)
 
   if (isLoading) return <div>Loading...</div>
   if (error) return <div>Error: {error.message}</div>
 
+  const renderRoute = () => {
+    if (title == 'Browse All Books') {
+      return '/books/all/'
+    }
+    return `/category/${category.toLowerCase()}/1`
+  }
+
   return (
     <>
-      <h2 className="text-3xl font-bold mb-4">{title || category}</h2>
+      <h2 className="text-3xl font-bold mb-4 ">
+        <Link
+          href={renderRoute()}
+          className="border-b-2 border-transparent hover:border-primary transition-all duration-200"
+        >
+          {title || category}
+        </Link>
+      </h2>
       <Carousel
         opts={{
           align: 'start',

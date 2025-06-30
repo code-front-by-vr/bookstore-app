@@ -14,6 +14,9 @@ export function getBook(isbn13: number): SWRResponse<BookType, Error> {
   return useSWR(`${bookEndpoint}${isbn13}`, fetcher)
 }
 
-export function getBooksByCategory(category: string): SWRResponse<BooksResponse, Error> {
-  return useSWR(`${categoryEndpoint}${category}`, fetcher)
+export function getBooksByCategory(
+  category: string,
+  page: number = 1
+): SWRResponse<BooksResponse, Error> {
+  return useSWR(`${categoryEndpoint}${category}/${page}`, fetcher)
 }

@@ -19,6 +19,19 @@ export type BookType = {
 }
 
 export type BooksResponse = {
-  total: string
+  total: number
+  page?: number
   books: BookType[]
+}
+
+export interface BooksCarouselProps {
+  category: string
+  title?: string
+}
+
+export interface PaginationBlockProps {
+  category: string
+  currentPage: number
+  totalItems: number
+  pageSize?: number
 }
