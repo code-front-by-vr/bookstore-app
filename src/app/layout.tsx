@@ -1,15 +1,20 @@
 import type {Metadata} from 'next'
-import {Geist, Geist_Mono} from 'next/font/google'
+import {Bebas_Neue, Inter} from 'next/font/google'
 import './globals.css'
+import Header from '@/components/header'
+import Container from '@/components/container'
+import Footer from '@/components/footer'
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const bebasNeue = Bebas_Neue({
   subsets: ['latin'],
+  weight: '400',
+  variable: '--font-bebas-neue',
 })
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+export const inter = Inter({
   subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
@@ -25,8 +30,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <main>{children}</main>
+      <body
+        className={`${bebasNeue.variable} ${inter.variable} antialiased min-h-dvh flex flex-col`}
+      >
+        <Header />
+        <main className="flex-1">
+          <Container>{children}</Container>
+        </main>
+        <Footer />
       </body>
     </html>
   )
