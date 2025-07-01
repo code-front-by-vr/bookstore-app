@@ -20,3 +20,7 @@ export function getBooksByCategory(
 ): SWRResponse<BooksResponse, Error> {
   return useSWR(`${categoryEndpoint}${category}/${page}`, fetcher)
 }
+
+export function searchBooks(query: string, page: number = 1): SWRResponse<BooksResponse, Error> {
+  return useSWR(query.trim() ? `${categoryEndpoint}${query}/${page}` : null, fetcher)
+}

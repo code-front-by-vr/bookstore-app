@@ -8,7 +8,7 @@ export default function Footer(): React.ReactNode {
           <p className="text-center text-sm text-gray-500">
             &copy; {new Date().getFullYear()} BookStore
           </p>
-          <p className="text-center text-sm uppercase text-gray-500">Все права защищены</p>
+          <p className="text-center text-sm uppercase text-gray-500">All rights reserved</p>
         </div>
       </Container>
     </footer>

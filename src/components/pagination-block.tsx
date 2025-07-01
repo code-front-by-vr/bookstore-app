@@ -12,10 +12,11 @@ import type {PaginationBlockProps} from '@/types/book'
 import {BOOKS_LIMIT} from '@/config/constants'
 
 export function PaginationBlock({
-  category,
+  query,
   currentPage,
   totalItems,
   pageSize = BOOKS_LIMIT,
+  basePath = 'category',
 }: PaginationBlockProps): React.ReactNode {
   const totalPages = Math.ceil(totalItems / pageSize)
   const pagination = buildSchemePagination(currentPage, totalPages)
@@ -23,11 +24,11 @@ export function PaginationBlock({
   if (totalPages <= 1 || !pagination) return null
 
   return (
-    <Pagination>
+    <Pagination className="font-inter">
       <PaginationContent>
         {currentPage > 1 && (
           <PaginationItem>
-            <PaginationPrevious href={`/category/${category}/${currentPage - 1}`} />
+            <PaginationPrevious href={`/${basePath}/${query}/${currentPage - 1}`} />
           </PaginationItem>
         )}
 
@@ -40,7 +41,7 @@ export function PaginationBlock({
             <PaginationItem key={`page-${item}`}>
               <PaginationLink
                 isActive={item === currentPage}
-                href={`/category/${category}/${item}`}
+                href={`/${basePath}/${query}/${item}`}
               >
                 {item}
               </PaginationLink>
@@ -50,7 +51,7 @@ export function PaginationBlock({
 
         {currentPage < totalPages && (
           <PaginationItem>
-            <PaginationNext href={`/category/${category}/${currentPage + 1}`} />
+            <PaginationNext href={`/${basePath}/${query}/${currentPage + 1}`} />
           </PaginationItem>
         )}
       </PaginationContent>

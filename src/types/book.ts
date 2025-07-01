@@ -30,8 +30,9 @@ export interface BooksCarouselProps {
 }
 
 export interface PaginationBlockProps {
-  category: string
+  query: string
   currentPage: number
   totalItems: number
   pageSize?: number
+  basePath?: string
 }
