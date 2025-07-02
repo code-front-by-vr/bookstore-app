@@ -9,7 +9,7 @@ export default function SearchPage() {
     <div className="bg-gradient-to-b from-white via-blue-50/30 to-purple-50/20 font-inter">
       <div className="container mx-auto my-10 px-4 pt-8 pb-24">
         <div className="text-center max-w-4xl mx-auto mb-12">
-          <h1 className="text-4xl font-bold  mb-4">Search Books</h1>
+          <h3 className="text-4xl font-bold  mb-4">Search Books</h3>
           <p className="text-xl text-gray-600 leading-relaxed">
             Find books by title, author or genre
           </p>

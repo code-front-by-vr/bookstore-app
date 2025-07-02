@@ -1,26 +1,26 @@
+'use client'
+
 import {fetcher} from '@/config/fetcher'
 import {BooksResponse, BookType} from '@/types/book'
+import {ENDPOINTS} from '@/config/endpoints'
 import useSWR, {type SWRResponse} from 'swr'
 
-const newBookEndpoint = 'https://api.itbook.store/1.0/new'
-const bookEndpoint = 'https://api.itbook.store/1.0/books/'
-const categoryEndpoint = 'https://api.itbook.store/1.0/search/'
-
 export function getNewBooks(): SWRResponse<BooksResponse, Error> {
-  return useSWR(newBookEndpoint, fetcher)
+  return useSWR(ENDPOINTS.new, fetcher)
 }
 
-export function getBook(isbn13: number): SWRResponse<BookType, Error> {
-  return useSWR(`${bookEndpoint}${isbn13}`, fetcher)
+export function getBook(isbn13: string): SWRResponse<BookType, Error> {
+  return useSWR(ENDPOINTS.book(isbn13), fetcher)
 }
 
 export function getBooksByCategory(
   category: string,
   page: number = 1
 ): SWRResponse<BooksResponse, Error> {
-  return useSWR(`${categoryEndpoint}${category}/${page}`, fetcher)
+  return useSWR(ENDPOINTS.search(category, page), fetcher)
 }
 
 export function searchBooks(query: string, page: number = 1): SWRResponse<BooksResponse, Error> {
-  return useSWR(query.trim() ? `${categoryEndpoint}${query}/${page}` : null, fetcher)
+  const key = query.trim() ? ENDPOINTS.search(query, page) : null
+  return useSWR(key, fetcher)
 }

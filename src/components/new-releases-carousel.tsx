@@ -11,12 +11,24 @@ import {getNewBooks} from '@/config/api/book'
 import {BookType} from '@/types/book'
 import CardBook from './card-book'
 import Link from 'next/link'
+import Loading from './loading'
+import ErrorMessage from './error-message'
+import NoDataMessage from './no-data-message'
 
 export default function NewReleasesCarousel(): React.ReactNode {
   const {data, isLoading, error} = getNewBooks()
 
-  if (isLoading) return <div>Loading...</div>
-  if (error) return <div>Error: {error.message}</div>
+  if (isLoading) {
+    return <Loading />
+  }
+
+  if (error) {
+    return <ErrorMessage error={error.message || 'Unknown error'} />
+  }
+
+  if (!data || !data.books || data.books.length === 0) {
+    return <NoDataMessage />
+  }
 
   return (
     <>

@@ -19,16 +19,16 @@ export function PaginationBlock({
   basePath = 'category',
 }: PaginationBlockProps): React.ReactNode {
   const totalPages = Math.ceil(totalItems / pageSize)
-  const pagination = buildSchemePagination(currentPage, totalPages)
+  const pagination = buildSchemePagination(+currentPage, totalPages)
 
   if (totalPages <= 1 || !pagination) return null
 
   return (
     <Pagination className="font-inter">
       <PaginationContent>
-        {currentPage > 1 && (
+        {+currentPage > 1 && (
           <PaginationItem>
-            <PaginationPrevious href={`/${basePath}/${query}/${currentPage - 1}`} />
+            <PaginationPrevious href={`/${basePath}/${query}/${+currentPage - 1}`} />
           </PaginationItem>
         )}
 
@@ -40,7 +40,7 @@ export function PaginationBlock({
           ) : (
             <PaginationItem key={`page-${item}`}>
               <PaginationLink
-                isActive={item === currentPage}
+                isActive={item === +currentPage}
                 href={`/${basePath}/${query}/${item}`}
               >
                 {item}
@@ -49,9 +49,9 @@ export function PaginationBlock({
           )
         )}
 
-        {currentPage < totalPages && (
+        {+currentPage < totalPages && (
           <PaginationItem>
-            <PaginationNext href={`/${basePath}/${query}/${currentPage + 1}`} />
+            <PaginationNext href={`/${basePath}/${query}/${+currentPage + 1}`} />
           </PaginationItem>
         )}
       </PaginationContent>

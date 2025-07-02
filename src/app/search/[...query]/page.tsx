@@ -2,16 +2,15 @@
 
 import {searchBooks} from '@/config/api/book'
 import BooksLists from '@/components/books-list'
-import {Button} from '@/components/ui/button'
-import {Loader2, ArrowLeft} from 'lucide-react'
-import Link from 'next/link'
 import {PaginationBlock} from '@/components/pagination-block'
-import React from 'react'
+import {use} from 'react'
+import Loading from '@/components/loading'
+import ErrorMessage from '@/components/error-message'
+import NoDataMessage from '@/components/no-data-message'
 
 export default function SearchPage({params}: {params: Promise<{query: string[]}>}) {
-  const unwrappedParams = React.use(params)
-  const query = unwrappedParams.query[0]
-  const currentPage = unwrappedParams.query[1] ? +unwrappedParams.query[1] : 1
+  const resolvedParams = use(params)
+  const [query, currentPage = '1'] = resolvedParams.query
 
   const {data, error, isLoading} = searchBooks(query, +currentPage)
 
@@ -19,7 +18,7 @@ export default function SearchPage({params}: {params: Promise<{query: string[]}>
     return (
       <div className="container mx-auto px-4 py-8">
         <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">Search books</h1>
+          <h3 className="text-2xl font-bold mb-4">Search books</h3>
           <p className="text-gray-600">Enter a query to search for books</p>
         </div>
       </div>
@@ -27,48 +26,21 @@ export default function SearchPage({params}: {params: Promise<{query: string[]}>
   }
 
   if (isLoading) {
-    return (
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex items-center justify-center">
-          <Loader2 className="w-8 h-8 animate-spin" />
-          <span className="ml-2">Search books...</span>
-        </div>
-      </div>
-    )
+    return <Loading />
   }
 
   if (error) {
-    return (
-      <div className="container mx-auto px-4 py-8">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">Search error</h1>
-          <p className="text-red-600">An error occurred while searching for books</p>
-        </div>
-      </div>
-    )
+    return <ErrorMessage error={error.message || 'Unknown error'} />
   }
 
   if (!data || !data.books || data.books.length === 0) {
-    return (
-      <div className="container mx-auto px-4 py-8">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">Search results</h1>
-          <p className="text-gray-600">No books found for query "{query}"</p>
-          <Link href="/">
-            <Button className="mt-4">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to home
-            </Button>
-          </Link>
-        </div>
-      </div>
-    )
+    return <NoDataMessage />
   }
 
   return (
     <div className="container mx-auto px-4 py-8 space-y-8">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold mb-2">For your query "{query}"</h1>
+        <h3 className="text-2xl font-bold mb-2">For your query "{query}"</h3>
         <p className="text-gray-600  text-sm font-inter">Found {data.total} books</p>
       </div>
 
@@ -76,7 +48,7 @@ export default function SearchPage({params}: {params: Promise<{query: string[]}>
 
       <PaginationBlock
         query={query}
-        currentPage={+currentPage}
+        currentPage={currentPage}
         totalItems={data.total}
         basePath="search"
       />

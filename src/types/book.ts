@@ -1,16 +1,18 @@
+import {ReactNode} from 'react'
+
 export type BookType = {
   error?: string
   title: string
   subtitle: string
   authors?: string
   publisher?: string
-  isbn10?: number
-  isbn13: number
-  pages?: number
-  year?: number
+  isbn10?: string
+  isbn13: string
+  pages?: string
+  year?: string
   rating?: number
   desc?: string
-  price: number
+  price: string
   image: string
   url: string
   pdf?: {
@@ -24,15 +26,38 @@ export type BooksResponse = {
   books: BookType[]
 }
 
-export interface BooksCarouselProps {
+export type BooksCarouselProps = {
   category: string
   title?: string
 }
 
-export interface PaginationBlockProps {
+export type PaginationBlockProps = {
   query: string
-  currentPage: number
+  currentPage: string
   totalItems: number
   pageSize?: number
   basePath?: string
+}
+
+export type BookDetailFieldProps = {
+  label: string
+  icon?: ReactNode
+  value: string | number
+  isMono?: boolean
+  className?: string
+}
+
+export type PdfPreviewProps = {
+  pdf: {
+    [chapter: string]: string
+  }
+}
+
+export type BookImageProps = {
+  src: string
+  alt: string
+  isFavorite: boolean
+  onToggleFavorite: () => void
+  className?: string
+  heartSize?: number
 }
