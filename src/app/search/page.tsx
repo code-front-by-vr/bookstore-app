@@ -1,8 +1,7 @@
-import {Button} from '@/components/ui/button'
 import {Card, CardContent} from '@/components/ui/card'
-import {ArrowLeft} from 'lucide-react'
 import Link from 'next/link'
 import SearchInput from '@/components/search-input'
+import HomeButton from '@/components/home-button'
 
 export default function SearchPage() {
   return (
@@ -48,16 +47,7 @@ export default function SearchPage() {
         </Card>
 
         <div className="text-center">
-          <Link href="/">
-            <Button
-              variant="outline"
-              size="lg"
-              className="bg-white/80 backdrop-blur-sm border-gray-200 hover:bg-white transition-all duration-300"
-            >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to home
-            </Button>
-          </Link>
+          <HomeButton />
         </div>
       </div>
     </div>

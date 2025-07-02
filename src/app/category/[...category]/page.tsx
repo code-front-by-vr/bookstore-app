@@ -4,7 +4,7 @@ import {PaginationBlock} from '@/components/pagination-block'
 import type {BooksResponse} from '@/types/book'
 import NoDataMessage from '@/components/no-data-message'
 import ErrorMessage from '@/components/error-message'
-import {ENDPOINTS} from '@/config/endpoints'
+import {ENDPOINTS} from '@/config/api/endpoints'
 
 export async function generateStaticParams() {
   const categories = ['javascript', 'python', 'react', 'node.js', 'java', 'php']

@@ -4,6 +4,7 @@ import './globals.css'
 import Header from '@/components/header'
 import Container from '@/components/container'
 import Footer from '@/components/footer'
+import StoreProvider from './StoreProvider'
 
 const bebasNeue = Bebas_Neue({
   subsets: ['latin'],
@@ -33,11 +34,13 @@ export default function RootLayout({
       <body
         className={`${bebasNeue.variable} ${inter.variable} antialiased min-h-dvh flex flex-col`}
       >
-        <Header />
-        <main className="flex-1">
-          <Container>{children}</Container>
-        </main>
-        <Footer />
+        <StoreProvider>
+          <Header />
+          <main className="flex-1">
+            <Container>{children}</Container>
+          </main>
+          <Footer />
+        </StoreProvider>
       </body>
     </html>
   )

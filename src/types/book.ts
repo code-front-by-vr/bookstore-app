@@ -57,7 +57,26 @@ export type BookImageProps = {
   src: string
   alt: string
   isFavorite: boolean
-  onToggleFavorite: () => void
+  onToggleFavorite: (e: React.MouseEvent) => void
   className?: string
   heartSize?: number
+}
+
+// Favorites
+
+export type FavoritesHeaderProps = {
+  count: number
+  onClearAll: () => void
+}
+
+export type FavoritesContentProps = {
+  books: BookType[]
+  onClearAll: () => void
+}
+
+export type RemoveAllDialogProps = {
+  isOpen: boolean
+  onOpenChange: (open: boolean) => void
+  onConfirm: () => void
+  children: React.ReactNode
 }

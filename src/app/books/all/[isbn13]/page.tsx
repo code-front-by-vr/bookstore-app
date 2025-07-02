@@ -1,6 +1,6 @@
 'use client'
 
-import {useState, use} from 'react'
+import {use} from 'react'
 import {getBook} from '@/config/api/book'
 import {ArrowLeft} from 'lucide-react'
 import Link from 'next/link'
@@ -10,11 +10,17 @@ import BookInfo from '@/components/book-info'
 import Loading from '@/components/loading'
 import ErrorMessage from '@/components/error-message'
 import NoDataMessage from '@/components/no-data-message'
+import {toggleFavorite} from '@/lib/features/favorites-slice'
+import {useAppDispatch, useAppSelector} from '@/lib/hooks'
+import {BookType} from '@/types/book'
 
 export default function BookPage({params}: {params: Promise<{isbn13: string}>}) {
+  const dispatch = useAppDispatch()
   const resolvedParams = use(params)
   const {data, isLoading, error} = getBook(resolvedParams.isbn13)
-  const [isFavorite, setIsFavorite] = useState(false)
+  const isFavorite = useAppSelector(state =>
+    state.favorite.items.some(book => book.isbn13 === resolvedParams.isbn13)
+  )
 
   if (isLoading) {
     return <Loading />
@@ -26,6 +32,12 @@ export default function BookPage({params}: {params: Promise<{isbn13: string}>}) 
 
   if (!data) {
     return <NoDataMessage />
+  }
+
+  function handleToggleFavorite(e: React.MouseEvent) {
+    e.preventDefault()
+    e.stopPropagation()
+    dispatch(toggleFavorite(data as BookType))
   }
 
   return (
@@ -47,8 +59,8 @@ export default function BookPage({params}: {params: Promise<{isbn13: string}>}) 
               src={data.image}
               alt={data.title}
               isFavorite={isFavorite}
-              onToggleFavorite={() => setIsFavorite(!isFavorite)}
-              heartSize={18}
+              onToggleFavorite={handleToggleFavorite}
+              heartSize={25}
             />
           </div>
         </div>
