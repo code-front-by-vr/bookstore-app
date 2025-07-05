@@ -9,11 +9,11 @@ import {
 } from '@/components/ui/carousel'
 import {getNewBooks} from '@/config/api/book'
 import {BookType} from '@/types/book'
-import CardBook from './card-book'
+import CardBook from '@/components/book/card-book'
 import Link from 'next/link'
-import Loading from './loading'
-import ErrorMessage from './error-message'
-import NoDataMessage from './no-data-message'
+import Loading from '@/components/ui/loading'
+import ErrorMessage from '@/components/ui/error-message'
+import NoDataMessage from '@/components/ui/no-data-message'
 
 export default function NewReleasesCarousel(): React.ReactNode {
   const {data, isLoading, error} = getNewBooks()

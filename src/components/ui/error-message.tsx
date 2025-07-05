@@ -1,4 +1,4 @@
-import HomeButton from '@/components/home-button'
+import HomeButton from '@/components/layout/home-link'
 
 export default function ErrorMessage({error}: {error: string}) {
   return (

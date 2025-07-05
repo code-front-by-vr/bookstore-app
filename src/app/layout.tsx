@@ -1,9 +1,9 @@
 import type {Metadata} from 'next'
 import {Bebas_Neue, Inter} from 'next/font/google'
 import './globals.css'
-import Header from '@/components/header'
-import Container from '@/components/container'
-import Footer from '@/components/footer'
+import Header from '@/components/layout/header'
+import Container from '@/components/layout/container'
+import Footer from '@/components/layout/footer'
 import StoreProvider from './StoreProvider'
 
 const bebasNeue = Bebas_Neue({

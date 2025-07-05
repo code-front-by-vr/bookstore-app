@@ -1,13 +1,15 @@
 import {configureStore} from '@reduxjs/toolkit'
 import favoriteReducer from './features/favorites-slice'
 import {favoritesLocalStorageMiddleware} from './features/favorites-slice'
+import cartReducer, {cartLocalStorageMiddleware} from './features/cart-slice'
 
-const middleware = [favoritesLocalStorageMiddleware]
+const middleware = [favoritesLocalStorageMiddleware, cartLocalStorageMiddleware]
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       favorite: favoriteReducer,
+      cart: cartReducer,
     },
     middleware: getDefaultMiddleware => getDefaultMiddleware().concat(middleware),
   })

@@ -2,21 +2,22 @@
 
 import {getBook} from '@/config/api/book'
 import {BookType} from '@/types/book'
-import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from './ui/card'
+import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from '../ui/card'
 import {Check, ShoppingCart} from 'lucide-react'
-import {Button} from './ui/button'
-import {useState} from 'react'
+import {Button} from '../ui/button'
 import BookRating from './book-rating'
 import BookImage from './book-image'
 import Link from 'next/link'
 import {toggleFavorite} from '@/lib/features/favorites-slice'
 import {useAppDispatch, useAppSelector} from '@/lib/hooks'
+import {addToCart} from '@/lib/features/cart-slice'
 
 export default function CardBook({title, isbn13, price, image}: BookType): React.ReactNode {
   const dispatch = useAppDispatch()
   const {data} = getBook(isbn13)
-  const [isInCart, setIsInCart] = useState(false)
   const rating = data?.rating || 0
+  const cartItems = useAppSelector(state => state.cart.items)
+  const isInCart = cartItems.some(item => item.book.isbn13 === isbn13)
 
   const isFavorite = useAppSelector(state =>
     state.favorite.items.some(book => book.isbn13 === isbn13)
@@ -25,7 +26,7 @@ export default function CardBook({title, isbn13, price, image}: BookType): React
   function handleClickAddToCart(e: React.MouseEvent) {
     e.preventDefault()
     e.stopPropagation()
-    setIsInCart(!isInCart)
+    dispatch(addToCart({book: data as BookType, quantity: 1}))
   }
 
   function handleToggleFavorite(e: React.MouseEvent) {

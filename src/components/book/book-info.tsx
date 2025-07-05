@@ -1,15 +1,14 @@
 'use client'
 
-import {Button} from './ui/button'
+import {Button} from '../ui/button'
 import PdfPreview from './pdf-preview'
-import {Calendar, Building, BookOpen, User, ShoppingCart} from 'lucide-react'
+import {Calendar, Building, BookOpen, User} from 'lucide-react'
 import BookDetailField from './book-detail-field'
 import BookRating from './book-rating'
+import {AddToCartButton} from '../cart/add-to-cart-button'
 import {BookType} from '@/types/book'
-import {useState} from 'react'
 
 export default function BookInfo({data}: {data: BookType}) {
-  const [isInCart, setIsInCart] = useState(false)
   const hasPdfChapters = data.pdf && Object.keys(data.pdf).length > 0
 
   return (
@@ -51,15 +50,7 @@ export default function BookInfo({data}: {data: BookType}) {
           <div className="text-3xl font-bold text-gray-900">{data.price}</div>
         </div>
         <div className="flex flex-col sm:flex-row gap-3">
-          <Button
-            className={`min-w-[200px] ${
-              isInCart ? 'bg-green-600 hover:bg-green-700' : 'bg-black hover:bg-gray-800'
-            }`}
-            onClick={() => setIsInCart(!isInCart)}
-          >
-            <ShoppingCart size={18} className="mr-2" />
-            {isInCart ? 'In cart' : 'Add to cart'}
-          </Button>
+          <AddToCartButton book={data} className="min-w-[200px]" size="lg" />
 
           {hasPdfChapters && <PdfPreview pdf={data.pdf!} />}
         </div>

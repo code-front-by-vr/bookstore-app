@@ -39,6 +39,12 @@ export type PaginationBlockProps = {
   basePath?: string
 }
 
+export type BookMainSectionProps = {
+  data: BookType
+  isFavorite: boolean
+  onToggleFavorite: (e: React.MouseEvent) => void
+}
+
 export type BookDetailFieldProps = {
   label: string
   icon?: ReactNode
@@ -62,7 +68,7 @@ export type BookImageProps = {
   heartSize?: number
 }
 
-// Favorites
+// Favorite Types
 
 export type FavoritesHeaderProps = {
   count: number
@@ -74,9 +80,38 @@ export type FavoritesContentProps = {
   onClearAll: () => void
 }
 
+export type FavoriteStateType = {
+  items: BookType[]
+  loading: boolean
+  error: string | null
+}
+
 export type RemoveAllDialogProps = {
   isOpen: boolean
   onOpenChange: (open: boolean) => void
   onConfirm: () => void
   children: React.ReactNode
+}
+
+// Cart Types
+export type CartStateType = {
+  items: CartItemType[]
+  totalPrice: number
+  loading: boolean
+  error: string | null
+}
+
+export type CartItemType = {
+  book: BookType
+  quantity: number
+}
+
+export type CartHeaderProps = {
+  cartItems: CartItemType[]
+  handleClearAll: () => void
+}
+
+export type CartSummaryProps = {
+  totalPrice: number
+  handleCheckout: () => void
 }

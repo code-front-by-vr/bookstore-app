@@ -1,5 +1,5 @@
 import {BookType} from '@/types/book'
-import CardBook from './card-book'
+import CardBook from '@/components/book/card-book'
 import {notFound} from 'next/navigation'
 
 export default function BooksLists({books}: {books: BookType[]}): React.ReactNode {

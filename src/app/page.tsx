@@ -1,6 +1,6 @@
-import BooksCarousel from '@/components/books-carousel'
-import NewReleasesCarousel from '@/components/new-releases-carousel'
-import SubscribeSection from '@/components/subscribe-section'
+import BooksCarousel from '@/components/catalog/books-carousel'
+import NewReleasesCarousel from '@/components/catalog/new-releases-carousel'
+import SubscribeSection from '@/components/sections/subscribe-section'
 
 export default function MainPage(): React.ReactNode {
   return (

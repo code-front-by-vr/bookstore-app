@@ -2,20 +2,18 @@
 
 import {useAppSelector, useAppDispatch} from '@/lib/hooks'
 import {clearAllFavorites} from '@/lib/features/favorites-slice'
-import Loading from '@/components/loading'
-import NoDataMessage from '@/components/no-data-message'
-import ErrorMessage from '@/components/error-message'
-import {useState} from 'react'
-import FavoritesContent from '@/components/favorites-content'
+import Loading from '@/components/ui/loading'
+import BooksEmpty from '@/components/book/books-empty'
+import ErrorMessage from '@/components/ui/error-message'
+import BooksLists from '@/components/catalog/books-list'
+import FavoritesHeader from '@/components/favorites/favorites-header'
 
 export default function FavoritesPage() {
   const {items: favoriteBooks, loading, error} = useAppSelector(state => state.favorite)
   const dispatch = useAppDispatch()
-  const [isDialogOpen, setIsDialogOpen] = useState(false)
 
   const handleClearAllFavorites = () => {
     dispatch(clearAllFavorites())
-    setIsDialogOpen(false)
   }
 
   if (loading) {
@@ -26,9 +24,10 @@ export default function FavoritesPage() {
     return <ErrorMessage error={error as string} />
   }
 
-  if (favoriteBooks.length === 0) {
-    return <NoDataMessage />
-  }
-
-  return <FavoritesContent books={favoriteBooks} onClearAll={handleClearAllFavorites} />
+  return (
+    <>
+      <FavoritesHeader count={favoriteBooks.length} onClearAll={handleClearAllFavorites} />
+      {favoriteBooks.length === 0 ? <BooksEmpty /> : <BooksLists books={favoriteBooks} />}
+    </>
+  )
 }

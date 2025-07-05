@@ -2,17 +2,18 @@
 
 import Link from 'next/link'
 import {Button} from '@/components/ui/button'
-import {Badge} from '@/components/ui/badge'
 import {Heart, ShoppingCart, User} from 'lucide-react'
 import Image from 'next/image'
-import SearchInput from './search-input'
+import SearchInput from '@/components/ui/search-input'
 import {usePathname} from 'next/navigation'
 import {useAppSelector} from '@/lib/hooks'
+import CounterBadge from '@/components/ui/counter-badge'
 
 export default function Header(): React.ReactNode {
   const pathname = usePathname()
   const isMainSearchPage = pathname === '/search'
   const favoritesCount = useAppSelector(state => state.favorite.items.length)
+  const cartItemsCount = useAppSelector(state => state.cart.items.length)
 
   return (
     <header className=" bg-white shadow-sm">
@@ -27,17 +28,14 @@ export default function Header(): React.ReactNode {
           <Link href="/books/favorites">
             <Button variant="ghost" size="icon" className="relative group">
               <Heart className="w-5 h-5" />
-              {favoritesCount > 0 && (
-                <Badge className="absolute -top-1 -right-1 bg-red-400 group-hover:bg-red-500 text-white rounded-full h-5 w-5 flex items-center justify-center font-medium border-0 px-0 py-0 transition-colors">
-                  {favoritesCount}
-                </Badge>
-              )}
+              <CounterBadge count={favoritesCount} />
             </Button>
           </Link>
 
           <Link href="/cart">
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" className="relative group">
               <ShoppingCart className="w-5 h-5" />
+              <CounterBadge count={cartItemsCount} />
             </Button>
           </Link>
 

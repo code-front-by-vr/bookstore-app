@@ -1,12 +1,7 @@
-import {BookType} from '@/types/book'
+import type {BookType, FavoriteStateType} from '@/types/book'
 import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit'
 import {FAVORITES_KEY} from '@/config/constants'
-
-type FavoriteStateType = {
-  items: BookType[]
-  loading: boolean
-  error: string | null
-}
+import {fetchBookByIsbn} from '@/services/books'
 
 const initialState: FavoriteStateType = {
   items: [],
@@ -19,19 +14,8 @@ export const fetchFavorites = createAsyncThunk<BookType[], void>(
   async () => {
     const favoritesId: string[] = JSON.parse(localStorage.getItem(FAVORITES_KEY) || '[]')
 
-    const fetchBookByIsbn = async (isbn: string): Promise<BookType | null> => {
-      try {
-        const res = await fetch(`https://api.itbook.store/1.0/books/${isbn}`)
-        if (!res.ok) throw new Error('Failed to fetch book')
-        return await res.json()
-      } catch (e) {
-        console.error(`Error fetching book ${isbn}:`, e)
-        return null
-      }
-    }
-
-    const results = await Promise.all(favoritesId.map(fetchBookByIsbn))
-    return results.filter(book => book !== null)
+    const favorites = await Promise.all(favoritesId.map(fetchBookByIsbn))
+    return favorites.filter(book => book !== null) as BookType[]
   }
 )
 

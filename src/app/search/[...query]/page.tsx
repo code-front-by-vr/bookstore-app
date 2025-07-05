@@ -1,28 +1,23 @@
 'use client'
 
 import {searchBooks} from '@/config/api/book'
-import BooksLists from '@/components/books-list'
-import {PaginationBlock} from '@/components/pagination-block'
+import BooksLists from '@/components/catalog/books-list'
+import {PaginationBlock} from '@/components/ui/pagination-block'
 import {use} from 'react'
-import Loading from '@/components/loading'
-import ErrorMessage from '@/components/error-message'
-import NoDataMessage from '@/components/no-data-message'
+import Loading from '@/components/ui/loading'
+import ErrorMessage from '@/components/ui/error-message'
+import NoDataMessage from '@/components/ui/no-data-message'
+import {useRouter} from 'next/navigation'
 
 export default function SearchPage({params}: {params: Promise<{query: string[]}>}) {
   const resolvedParams = use(params)
+  const router = useRouter()
   const [query, currentPage = '1'] = resolvedParams.query
 
-  const {data, error, isLoading} = searchBooks(query, +currentPage)
+  const {data, error, isLoading} = searchBooks(query, currentPage)
 
   if (!query) {
-    return (
-      <div className="container mx-auto px-4 py-8">
-        <div className="text-center">
-          <h3 className="text-2xl font-bold mb-4">Search books</h3>
-          <p className="text-gray-600">Enter a query to search for books</p>
-        </div>
-      </div>
-    )
+    router.push('/search')
   }
 
   if (isLoading) {

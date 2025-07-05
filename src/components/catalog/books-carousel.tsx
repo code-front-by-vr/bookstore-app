@@ -9,10 +9,10 @@ import {
 } from '@/components/ui/carousel'
 import {getBooksByCategory} from '@/config/api/book'
 import {BookType, BooksCarouselProps} from '@/types/book'
-import CardBook from './card-book'
+import CardBook from '@/components/book/card-book'
 import Link from 'next/link'
-import Loading from './loading'
-import ErrorMessage from './error-message'
+import Loading from '@/components/ui/loading'
+import ErrorMessage from '@/components/ui/error-message'
 
 export default function BooksCarousel({category, title}: BooksCarouselProps): React.ReactNode {
   const {data, isLoading, error} = getBooksByCategory(category)

@@ -1,9 +1,9 @@
 import React from 'react'
-import BooksLists from '@/components/books-list'
-import {PaginationBlock} from '@/components/pagination-block'
+import BooksLists from '@/components/catalog/books-list'
+import {PaginationBlock} from '@/components/ui/pagination-block'
 import type {BooksResponse} from '@/types/book'
-import NoDataMessage from '@/components/no-data-message'
-import ErrorMessage from '@/components/error-message'
+import NoDataMessage from '@/components/ui/no-data-message'
+import ErrorMessage from '@/components/ui/error-message'
 import {ENDPOINTS} from '@/config/api/endpoints'
 
 export async function generateStaticParams() {
