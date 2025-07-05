@@ -2,8 +2,8 @@
 
 import {Button} from '@/components/ui/button'
 import {ShoppingCart} from 'lucide-react'
-import {useAppDispatch, useAppSelector} from '@/lib/hooks'
-import {addToCart} from '@/lib/features/cart-slice'
+import {useAppDispatch, useAppSelector} from '@/lib/redux/hooks'
+import {addToCart} from '@/lib/redux/features/cart-slice'
 import type {AddToCartButtonProps} from '@/types/book'
 
 export const AddToCartButton = ({book, className, size = 'default'}: AddToCartButtonProps) => {
@@ -13,7 +13,7 @@ export const AddToCartButton = ({book, className, size = 'default'}: AddToCartBu
   const isInCart = cartItems.some(item => item.book.isbn13 === book.isbn13)
 
   const handleClickAddToCart = () => {
-    dispatch(addToCart(book))
+    dispatch(addToCart({book: book, quantity: 1}))
   }
 
   return (

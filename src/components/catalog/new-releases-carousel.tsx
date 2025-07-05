@@ -35,7 +35,7 @@ export default function NewReleasesCarousel(): React.ReactNode {
       <h2 className="text-3xl font-bold mb-4">
         <Link
           href="/books/new"
-          className="border-b-2 border-transparent hover:border-primary transition-all duration-200"
+          className="border-b-2 border-transparent hover:border-primary transition-all duration-200 font-bold"
         >
           New Releases
         </Link>
@@ -57,8 +57,8 @@ export default function NewReleasesCarousel(): React.ReactNode {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious className="hidden lg:flex" />
+        <CarouselNext className="hidden lg:flex" />
       </Carousel>
     </>
   )

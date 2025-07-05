@@ -1,5 +1,11 @@
 import {ReactNode} from 'react'
 
+export type LangType = 'en' | 'ru'
+
+export interface LangStateType {
+  lang: LangType
+}
+
 export type BookType = {
   error?: string
   title: string
@@ -114,4 +120,10 @@ export type CartHeaderProps = {
 export type CartSummaryProps = {
   totalPrice: number
   handleCheckout: () => void
+}
+
+export type AddToCartButtonProps = {
+  book: BookType
+  className?: string
+  size?: 'default' | 'sm' | 'lg'
 }

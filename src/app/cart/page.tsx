@@ -1,8 +1,8 @@
 'use client'
 
-import {clearCart} from '@/lib/features/cart-slice'
+import {clearCart} from '@/lib/redux/features/cart-slice'
 import CartSummary from '@/components/cart/cart-summary'
-import {useAppDispatch, useAppSelector} from '@/lib/hooks'
+import {useAppDispatch, useAppSelector} from '@/lib/redux/hooks'
 import CartHeader from '@/components/cart/cart-header'
 import CartEmpty from '@/components/cart/cart-empty'
 import CartList from '@/components/cart/cart-list'

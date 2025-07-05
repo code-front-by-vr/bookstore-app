@@ -8,9 +8,9 @@ import {Button} from '../ui/button'
 import BookRating from './book-rating'
 import BookImage from './book-image'
 import Link from 'next/link'
-import {toggleFavorite} from '@/lib/features/favorites-slice'
-import {useAppDispatch, useAppSelector} from '@/lib/hooks'
-import {addToCart} from '@/lib/features/cart-slice'
+import {toggleFavorite} from '@/lib/redux/features/favorites-slice'
+import {useAppDispatch, useAppSelector} from '@/lib/redux/hooks'
+import {addToCart} from '@/lib/redux/features/cart-slice'
 
 export default function CardBook({title, isbn13, price, image}: BookType): React.ReactNode {
   const dispatch = useAppDispatch()
@@ -49,7 +49,7 @@ export default function CardBook({title, isbn13, price, image}: BookType): React
         </CardHeader>
 
         <CardContent className="flex-grow mb-2">
-          <CardTitle className="mb-2 line-clamp-1 sm:line-clamp-2 sm:h-[2rem] h-[1.6rem]">
+          <CardTitle className="mb-2 line-clamp-1 sm:line-clamp-2 sm:h-[2rem] h-[2rem]">
             {title}
           </CardTitle>
           <CardDescription className="text-xs text-gray-500 line-clamp-1 font-inter mb-2">

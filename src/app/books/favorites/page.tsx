@@ -1,7 +1,7 @@
 'use client'
 
-import {useAppSelector, useAppDispatch} from '@/lib/hooks'
-import {clearAllFavorites} from '@/lib/features/favorites-slice'
+import {useAppSelector, useAppDispatch} from '@/lib/redux/hooks'
+import {clearAllFavorites} from '@/lib/redux/features/favorites-slice'
 import Loading from '@/components/ui/loading'
 import BooksEmpty from '@/components/book/books-empty'
 import ErrorMessage from '@/components/ui/error-message'

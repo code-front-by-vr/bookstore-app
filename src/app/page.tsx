@@ -12,7 +12,7 @@ export default function MainPage(): React.ReactNode {
       <BooksCarousel category="Node.js" />
       <BooksCarousel category="Java" />
       <BooksCarousel category="PHP" />
-      <BooksCarousel category="Programming" title="Browse all books" />
+      <BooksCarousel category="Programming" title="allBooks" />
       <SubscribeSection />
     </div>
   )

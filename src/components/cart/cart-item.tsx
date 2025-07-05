@@ -3,9 +3,9 @@ import {Button} from '../ui/button'
 import {Minus, Plus, Trash} from 'lucide-react'
 import BookImage from '../book/book-image'
 import {useDispatch} from 'react-redux'
-import {incrementQuantity, decrementQuantity, removeFromCart} from '@/lib/features/cart-slice'
-import {toggleFavorite} from '@/lib/features/favorites-slice'
-import {useAppSelector} from '@/lib/hooks'
+import {incrementQuantity, decrementQuantity, removeFromCart} from '@/lib/redux/features/cart-slice'
+import {toggleFavorite} from '@/lib/redux/features/favorites-slice'
+import {useAppSelector} from '@/lib/redux/hooks'
 
 export default function CartItem({book, quantity}: {book: BookType; quantity: number}) {
   const dispatch = useDispatch()
