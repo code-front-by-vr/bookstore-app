@@ -2,7 +2,7 @@ import BooksCarousel from '@/components/catalog/books-carousel'
 import NewReleasesCarousel from '@/components/catalog/new-releases-carousel'
 import SubscribeSection from '@/components/sections/subscribe-section'
 
-export default function MainPage(): React.ReactNode {
+export default async function MainPage(): Promise<React.ReactNode> {
   return (
     <div className="py-10 space-y-10">
       <NewReleasesCarousel />

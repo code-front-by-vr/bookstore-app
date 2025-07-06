@@ -11,6 +11,7 @@ import Link from 'next/link'
 import {toggleFavorite} from '@/lib/redux/features/favorites-slice'
 import {useAppDispatch, useAppSelector} from '@/lib/redux/hooks'
 import {addToCart} from '@/lib/redux/features/cart-slice'
+import {useTranslations} from 'next-intl'
 
 export default function CardBook({title, isbn13, price, image}: BookType): React.ReactNode {
   const dispatch = useAppDispatch()
@@ -18,6 +19,7 @@ export default function CardBook({title, isbn13, price, image}: BookType): React
   const rating = data?.rating || 0
   const cartItems = useAppSelector(state => state.cart.items)
   const isInCart = cartItems.some(item => item.book.isbn13 === isbn13)
+  const t = useTranslations('addToCartButton')
 
   const isFavorite = useAppSelector(state =>
     state.favorite.items.some(book => book.isbn13 === isbn13)
@@ -78,12 +80,12 @@ export default function CardBook({title, isbn13, price, image}: BookType): React
           {isInCart ? (
             <>
               <Check size={16} className="mr-2" />
-              In cart
+              {t('inCart')}
             </>
           ) : (
             <>
               <ShoppingCart size={16} className="mr-2" />
-              Buy
+              {t('buy')}
             </>
           )}
         </Button>

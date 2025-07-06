@@ -5,11 +5,11 @@ import {Button} from '@/components/ui/button'
 import {Heart, ShoppingCart, User, Search} from 'lucide-react'
 import Image from 'next/image'
 import SearchInput from '@/components/ui/search-input'
-import LanguageSelector from '@/components/ui/language-selector'
 import {usePathname} from 'next/navigation'
 import {useAppSelector} from '@/lib/redux/hooks'
 import CounterBadge from '@/components/ui/counter-badge'
 import {useState} from 'react'
+import LocaleSwitcher from '@/components/ui/locale-switcher'
 
 export default function Header(): React.ReactNode {
   const pathname = usePathname()
@@ -57,7 +57,7 @@ export default function Header(): React.ReactNode {
             </Button>
           </Link>
 
-          <LanguageSelector />
+          <LocaleSwitcher />
 
           <Link href="/profile">
             <Button variant="ghost" size="icon" className="w-8 h-8 md:w-10 md:h-10">

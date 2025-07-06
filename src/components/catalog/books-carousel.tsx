@@ -13,15 +13,16 @@ import CardBook from '@/components/book/card-book'
 import Link from 'next/link'
 import Loading from '@/components/ui/loading'
 import ErrorMessage from '@/components/ui/error-message'
+import {useTranslations} from 'next-intl'
 
 export default function BooksCarousel({category, title}: BooksCarouselProps): React.ReactNode {
   const {data, isLoading, error} = getBooksByCategory(category)
-
+  const t = useTranslations()
   if (isLoading) return <Loading />
   if (error) return <ErrorMessage error={error.message || 'Unknown error'} />
 
   const renderRoute = () => {
-    if (title == 'Browse All Books') {
+    if (title == 'allBooks') {
       return '/books/all/'
     }
     return `/category/${category.toLowerCase()}/1`
@@ -34,7 +35,7 @@ export default function BooksCarousel({category, title}: BooksCarouselProps): Re
           href={renderRoute()}
           className="border-b-2 border-transparent hover:border-primary transition-all duration-200"
         >
-          {title || category}
+          {title ? t(title) : category}
         </Link>
       </h2>
       <Carousel

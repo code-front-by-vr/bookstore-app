@@ -1,14 +1,15 @@
 'use client'
 
-import {Button} from '../ui/button'
 import PdfPreview from './pdf-preview'
 import {Calendar, Building, BookOpen, User} from 'lucide-react'
 import BookDetailField from './book-detail-field'
 import BookRating from './book-rating'
 import {AddToCartButton} from '../cart/add-to-cart-button'
 import {BookType} from '@/types/book'
+import {useTranslations} from 'next-intl'
 
 export default function BookInfo({data}: {data: BookType}) {
+  const t = useTranslations('bookInfo')
   const hasPdfChapters = data.pdf && Object.keys(data.pdf).length > 0
 
   return (
@@ -26,20 +27,20 @@ export default function BookInfo({data}: {data: BookType}) {
       <div>
         <div className="space-y-3">
           {data.authors && (
-            <BookDetailField label="Author" value={data.authors} icon={<User size={16} />} />
+            <BookDetailField label={t('author')} value={data.authors} icon={<User size={16} />} />
           )}
           {data.publisher && (
             <BookDetailField
-              label="Publisher"
+              label={t('publisher')}
               value={data.publisher}
               icon={<Building size={16} />}
             />
           )}
           {data.year && (
-            <BookDetailField label="Year" value={data.year} icon={<Calendar size={16} />} />
+            <BookDetailField label={t('year')} value={data.year} icon={<Calendar size={16} />} />
           )}
           {data.pages && (
-            <BookDetailField label="Pages" value={data.pages} icon={<BookOpen size={16} />} />
+            <BookDetailField label={t('pages')} value={data.pages} icon={<BookOpen size={16} />} />
           )}
           {data.isbn13 && <BookDetailField label="ISBN-13" value={data.isbn13} isMono />}
         </div>

@@ -5,10 +5,12 @@ import {Button} from '@/components/ui/button'
 import {Input} from '@/components/ui/input'
 import {Search} from 'lucide-react'
 import {useRouter} from 'next/navigation'
+import {useTranslations} from 'next-intl'
 
 export default function SearchInput(): React.ReactNode {
   const [query, setQuery] = useState('')
   const router = useRouter()
+  const t = useTranslations()
 
   function handleSubmitSearch(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -40,9 +42,9 @@ export default function SearchInput(): React.ReactNode {
         type="search"
         value={query}
         onChange={e => setQuery(e.target.value)}
-        placeholder="Search books..."
         className="w-full pr-10"
         name="query"
+        placeholder={t('search')}
       />
 
       <Button

@@ -5,8 +5,10 @@ import {ShoppingCart} from 'lucide-react'
 import {useAppDispatch, useAppSelector} from '@/lib/redux/hooks'
 import {addToCart} from '@/lib/redux/features/cart-slice'
 import type {AddToCartButtonProps} from '@/types/book'
+import {useTranslations} from 'next-intl'
 
 export const AddToCartButton = ({book, className, size = 'default'}: AddToCartButtonProps) => {
+  const t = useTranslations('addToCartButton')
   const dispatch = useAppDispatch()
 
   const cartItems = useAppSelector(state => state.cart.items)
@@ -24,7 +26,7 @@ export const AddToCartButton = ({book, className, size = 'default'}: AddToCartBu
       variant={isInCart ? 'secondary' : 'default'}
     >
       <ShoppingCart className="h-4 w-4 mr-2" />
-      {isInCart ? `В корзине` : 'В корзину'}
+      {isInCart ? t('inCart') : t('addToCart')}
     </Button>
   )
 }
