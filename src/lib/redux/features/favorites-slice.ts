@@ -1,7 +1,7 @@
 import type {BookType, FavoriteStateType} from '@/types/book'
 import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit'
 import {FAVORITES_KEY} from '@/config/constants'
-import {fetchBookByIsbn} from '@/services/books'
+import {fetchBookByIsbn} from '@/config/api/book'
 
 const initialState: FavoriteStateType = {
   items: [],

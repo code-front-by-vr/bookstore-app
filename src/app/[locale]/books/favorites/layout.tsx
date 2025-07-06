@@ -1,3 +1,5 @@
+import BaseLayout from '@/components/layout/base-layout'
+
 export default function FavoritesLayout({children}: {children: React.ReactNode}) {
-  return <div className="container mx-auto px-4 py-8">{children}</div>
+  return <BaseLayout>{children}</BaseLayout>
 }

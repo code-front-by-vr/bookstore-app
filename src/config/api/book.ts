@@ -24,3 +24,13 @@ export function searchBooks(query: string, page: string = '1'): SWRResponse<Book
   const key = query.trim() ? ENDPOINTS.search(query, page) : null
   return useSWR(key, fetcher)
 }
+
+// Without SWR
+export const fetchBookByIsbn = async (isbn: string): Promise<BookType | null> => {
+  try {
+    return await fetcher(ENDPOINTS.book(isbn))
+  } catch (e) {
+    console.error(`Error fetching book ${isbn}:`, e)
+    return null
+  }
+}
