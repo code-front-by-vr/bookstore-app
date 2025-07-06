@@ -1,6 +1,7 @@
 {
   "search": "Search books...",
   "newReleases": "New releases",
+  "similarBooks": "Similar books",
   "newBooks": {
     "title": "New books",
     "description": "Found {count} books"
@@ -28,7 +29,9 @@
     "publisher": "Publisher",
     "pages": "Pages",
     "year": "Year",
-    "description": "Description"
+    "description": "Description",
+    "pdfChapters": "PDF Chapters",
+    "pdfChaptersAvailable": "Available"
   },
   "favoritesHeader": {
     "title": "My favorites books",

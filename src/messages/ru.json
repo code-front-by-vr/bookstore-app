@@ -1,6 +1,7 @@
 {
   "search": "Искать книги...",
   "newReleases": "Новые релизы",
+  "similarBooks": "Похожие книги",
   "newBooks": {
     "title": "Новые книги",
     "description": "Найдено {count} книг"
@@ -28,7 +29,9 @@
     "publisher": "Издательство",
     "pages": "Страниц",
     "year": "Год",
-    "description": "Описание"
+    "description": "Описание",
+    "pdfChapters": "PDF Главы",
+    "pdfChaptersAvailable": "Доступно"
   },
   "favoritesHeader": {
     "title": "Избранные книги",

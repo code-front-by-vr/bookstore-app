@@ -13,7 +13,17 @@ import {useAppDispatch, useAppSelector} from '@/lib/redux/hooks'
 import {addToCart} from '@/lib/redux/features/cart-slice'
 import {useTranslations} from 'next-intl'
 
-export default function CardBook({title, isbn13, price, image}: BookType): React.ReactNode {
+interface CardBookProps extends BookType {
+  hideBuyButton?: boolean
+}
+
+export default function CardBook({
+  title,
+  isbn13,
+  price,
+  image,
+  hideBuyButton = false,
+}: CardBookProps): React.ReactNode {
   const dispatch = useAppDispatch()
   const {data} = getBook(isbn13)
   const rating = data?.rating || 0
@@ -65,31 +75,33 @@ export default function CardBook({title, isbn13, price, image}: BookType): React
         </CardFooter>
       </Link>
 
-      <div className="px-6 pb-6">
-        <Button
-          variant="outline"
-          className={`group w-full h-10 px-4 py-2 text-sm font-medium rounded-lg border-2 transition-all duration-200
-            ${
-              isInCart
-                ? 'border-green-500 bg-green-50 text-green-700 hover:bg-green-100'
-                : 'border-gray-400 text-gray-700 hover:bg-gray-50 hover:border-gray-500'
-            }
-          `}
-          onClick={handleClickAddToCart}
-        >
-          {isInCart ? (
-            <>
-              <Check size={16} className="mr-2" />
-              {t('inCart')}
-            </>
-          ) : (
-            <>
-              <ShoppingCart size={16} className="mr-2" />
-              {t('buy')}
-            </>
-          )}
-        </Button>
-      </div>
+      {!hideBuyButton && (
+        <div className="px-6 pb-6">
+          <Button
+            variant="outline"
+            className={`group w-full h-10 px-4 py-2 text-sm font-medium rounded-lg border-2 transition-all duration-200
+              ${
+                isInCart
+                  ? 'border-green-500 bg-green-50 text-green-700 hover:bg-green-100'
+                  : 'border-gray-400 text-gray-700 hover:bg-gray-50 hover:border-gray-500'
+              }
+            `}
+            onClick={handleClickAddToCart}
+          >
+            {isInCart ? (
+              <>
+                <Check size={16} className="mr-2" />
+                {t('inCart')}
+              </>
+            ) : (
+              <>
+                <ShoppingCart size={16} className="mr-2" />
+                {t('buy')}
+              </>
+            )}
+          </Button>
+        </div>
+      )}
     </Card>
   )
 }

@@ -12,6 +12,7 @@ import {BookType} from '@/types/book'
 import HomeLink from '@/components/layout/home-link'
 import BookDescription from '@/components/book/book-description'
 import BookMainSection from '@/components/book/book-main-section'
+import SimilarBooksCarousel from '@/components/catalog/similar-books-carousel'
 
 export default function BookPage({params}: {params: Promise<{isbn13: string}>}) {
   const dispatch = useAppDispatch()
@@ -42,15 +43,13 @@ export default function BookPage({params}: {params: Promise<{isbn13: string}>}) 
   return (
     <>
       <HomeLink />
-
       <BookMainSection
         data={data}
         isFavorite={isFavorite}
         onToggleFavorite={handleToggleFavorite}
       />
-
       <BookDescription description={data.desc} />
-
+      <SimilarBooksCarousel title={data.title} />
       <SubscribeSection />
     </>
   )

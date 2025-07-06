@@ -7,17 +7,19 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
-import {getNewBooks} from '@/config/api/book'
+import {getSimilarBooks} from '@/config/api/book'
 import {BookType} from '@/types/book'
 import CardBook from '@/components/book/card-book'
-import Link from 'next/link'
 import Loading from '@/components/ui/loading'
 import ErrorMessage from '@/components/ui/error-message'
-import NoDataMessage from '@/components/ui/no-data-message'
 import {useTranslations} from 'next-intl'
 
-export default function NewReleasesCarousel(): React.ReactNode {
-  const {data, isLoading, error} = getNewBooks()
+interface SimilarBooksCarouselProps {
+  title: string
+}
+
+export default function SimilarBooksCarousel({title}: SimilarBooksCarouselProps) {
+  const {data, isLoading, error} = getSimilarBooks(title)
   const t = useTranslations()
 
   if (isLoading) {
@@ -29,38 +31,32 @@ export default function NewReleasesCarousel(): React.ReactNode {
   }
 
   if (!data || !data.books || data.books.length === 0) {
-    return <NoDataMessage />
+    return null
   }
 
   return (
-    <>
-      <h2 className="text-3xl font-bold mb-4">
-        <Link
-          href="/books/new"
-          className="border-b-2 border-transparent hover:border-primary transition-all duration-200 font-bold"
-        >
-          {t('newReleases')}
-        </Link>
-      </h2>
+    <div className="mb-12 border-t pt-8">
+      <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('similarBooks')}</h2>
       <Carousel
         opts={{
           align: 'start',
+          loop: true,
         }}
         className="w-full px-4"
       >
-        <CarouselContent>
-          {data?.books.map((book: BookType) => (
+        <CarouselContent className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide">
+          {data.books.slice(0, 10).map((book: BookType) => (
             <CarouselItem
               key={book.isbn13}
-              className="basis-4/5 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5 "
+              className="basis-4/5 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
             >
-              <CardBook {...book} />
+              <CardBook {...book} hideBuyButton={true} />
             </CarouselItem>
           ))}
         </CarouselContent>
         <CarouselPrevious className="hidden lg:flex" />
         <CarouselNext className="hidden lg:flex" />
       </Carousel>
-    </>
+    </div>
   )
 }

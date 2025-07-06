@@ -25,6 +25,12 @@ export function searchBooks(query: string, page: string = '1'): SWRResponse<Book
   return useSWR(key, fetcher)
 }
 
+export function getSimilarBooks(title: string): SWRResponse<BooksResponse, Error> {
+  const keyword = title ? title.split(' ').find(word => word.trim().length > 3) || '' : ''
+  const key = keyword.trim() ? ENDPOINTS.search(keyword) : null
+  return useSWR(key, fetcher)
+}
+
 // Without SWR
 export const fetchBookByIsbn = async (isbn: string): Promise<BookType | null> => {
   try {

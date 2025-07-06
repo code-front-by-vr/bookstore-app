@@ -4,22 +4,25 @@ import {Popover, PopoverContent, PopoverTrigger} from '@/components/ui/popover'
 import {Button} from '@/components/ui/button'
 import {ChevronDown, Download, ExternalLink} from 'lucide-react'
 import type {PdfPreviewProps} from '@/types/book'
+import {useTranslations} from 'next-intl'
 
 export default function PdfPreview({pdf}: PdfPreviewProps): React.ReactNode {
   if (!pdf || Object.keys(pdf).length === 0) return null
-
+  const t = useTranslations('bookInfo')
   return (
     <Popover>
       <PopoverTrigger asChild>
         <Button variant="outline">
           <Download size={18} className="mr-2" />
-          PDF Chapters
+          {t('pdfChapters')}
           <ChevronDown size={16} className="ml-2" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-64 p-0" align="start">
         <div className="p-2">
-          <h4 className="px-2 py-1.5 text-sm font-medium text-gray-900 mb-1">Available</h4>
+          <h4 className="px-2 py-1.5 text-sm font-medium text-gray-900 mb-1">
+            {t('pdfChaptersAvailable')}
+          </h4>
           <div className="space-y-1">
             {Object.entries(pdf).map(([chapter, url]: [string, string]) => (
               <a
