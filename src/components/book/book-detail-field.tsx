@@ -9,7 +9,7 @@ export default function BookDetailField({
 }: BookDetailFieldProps): React.ReactNode {
   return (
     <div className={`flex items-center gap-4 ${className}`}>
-      <div className="w-24 flex-shrink-0 flex items-center gap-2 text-sm text-gray-500 font-medium font-inter">
+      <div className="w-32 flex-shrink-0 flex items-center gap-2 text-sm text-gray-500 font-medium font-inter">
         {icon}
         {label}:
       </div>

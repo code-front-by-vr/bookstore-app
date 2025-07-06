@@ -1,0 +1,89 @@
+{
+  "search": "Search books...",
+  "newReleases": "New releases",
+  "newBooks": {
+    "title": "New books",
+    "description": "Found {count} books"
+  },
+  "allBooks": "Browse all books",
+  "category": {
+    "title": "{category}",
+    "description": "Found {count} books"
+  },
+  "searchResults": {
+    "title": "For your query \"{query}\"",
+    "description": "Found {count} books"
+  },
+  "searchPage": {
+    "title": "Search books",
+    "description": "Find books by title, author or genre",
+    "popularQueries": "Popular queries:"
+  },
+  "language": {
+    "en": "English",
+    "ru": "Russian"
+  },
+  "bookInfo": {
+    "author": "Author",
+    "publisher": "Publisher",
+    "pages": "Pages",
+    "year": "Year",
+    "description": "Description"
+  },
+  "favoritesHeader": {
+    "title": "My favorites books",
+    "description": "{count, plural, one {# book in your favorites} other {# books in your favorites}}",
+    "removeMessage": "This will permanently remove all books from your favorites. This action cannot be undone."
+  },
+  "removeAll": {
+    "title": "Remove all books",
+    "areYouSure": "Are you sure?",
+    "description": "This action cannot be undone.",
+    "cancel": "Cancel",
+    "removeAll": "Remove all"
+  },
+  "booksEmpty": {
+    "title": "No books found",
+    "description": "Add some books to your favorites"
+  },
+  "addToCartButton": {
+    "buy": "Buy",
+    "inCart": "In cart",
+    "addToCart": "Add to cart"
+  },
+  "cartHeader": {
+    "title": "Cart",
+    "description": "{count, plural, one {# book in your cart} other {# books in your cart}}",
+    "removeMessage": "This will permanently remove all books from your cart. This action cannot be undone."
+  },
+  "cartEmpty": {
+    "title": "Your cart is empty",
+    "description": "Add some books to get started"
+  },
+  "cartSummary": {
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "shippingFree": "Free",
+    "total": "Total",
+    "checkout": "Checkout"
+  },
+  "subscribeSection": {
+    "title": "Subscribe to our newsletter",
+    "description": "Be the first to know about new IT books, upcoming releases, exclusive offers and more.",
+    "email": "Enter your email",
+    "button": "Subscribe",
+    "success": "Thanks for subscribing!"
+  },
+  "footer": {
+    "copyright": "All rights reserved"
+  },
+  "backToCatalog": "Back to catalog",
+  "error": {
+    "title": "Error",
+    "description": "An error occurred while loading books. {error}"
+  },
+  "loading": {
+    "title": "Loading books...",
+    "description": "Please wait..."
+  }
+}

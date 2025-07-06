@@ -6,9 +6,11 @@ import BooksLists from '@/components/catalog/books-list'
 import ErrorMessage from '@/components/ui/error-message'
 import NoDataMessage from '@/components/ui/no-data-message'
 import Loading from '@/components/ui/loading'
+import {useTranslations} from 'next-intl'
 
 export default function NewBooksPage(): React.ReactNode {
   const {data, isLoading, error} = getNewBooks()
+  const t = useTranslations('newBooks')
 
   if (isLoading) {
     return <Loading />
@@ -24,8 +26,10 @@ export default function NewBooksPage(): React.ReactNode {
 
   return (
     <>
-      <h3 className="text-3xl font-bold mb-6 capitalize">New Books</h3>
-      <p className="text-gray-600 mb-4 text-sm font-inter">Found {data.total} books </p>
+      <h3 className="text-3xl font-bold mb-6 ">{t('title')}</h3>
+      <p className="text-gray-600 mb-4 text-sm font-inter">
+        {t('description', {count: data.total})}
+      </p>
       <BooksLists books={data.books} />
     </>
   )

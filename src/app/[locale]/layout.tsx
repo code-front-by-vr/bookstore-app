@@ -4,7 +4,11 @@ import './globals.css'
 import Header from '@/components/layout/header'
 import Container from '@/components/layout/container'
 import Footer from '@/components/layout/footer'
-import StoreProvider from './StoreProvider'
+import StoreProvider from '@/app/[locale]/StoreProvider'
+
+import {NextIntlClientProvider, hasLocale} from 'next-intl'
+import {notFound} from 'next/navigation'
+import {routing} from '@/i18n/routing'
 
 const bebasNeue = Bebas_Neue({
   subsets: ['latin'],
@@ -24,22 +28,32 @@ export const metadata: Metadata = {
     'Найдите и купите любимые книги в нашем онлайн книжном магазине. Широкий выбор IT-литературы, новинки и бестселлеры.',
 }
 
-export default function RootLayout({
+export default async function LocaleLayout({
   children,
-}: Readonly<{
+  params,
+}: {
   children: React.ReactNode
-}>) {
+  params: Promise<{locale: string}>
+}) {
+  const {locale} = await params
+  if (!hasLocale(routing.locales, locale)) {
+    notFound()
+  }
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body
         className={`${bebasNeue.variable} ${inter.variable} antialiased min-h-dvh flex flex-col`}
+        suppressHydrationWarning={true}
       >
         <StoreProvider>
-          <Header />
-          <main className="flex-1">
-            <Container>{children}</Container>
-          </main>
-          <Footer />
+          <NextIntlClientProvider>
+            <Header />
+            <main className="flex-1">
+              <Container>{children}</Container>
+            </main>
+            <Footer />
+          </NextIntlClientProvider>
         </StoreProvider>
       </body>
     </html>

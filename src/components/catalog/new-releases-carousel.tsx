@@ -14,9 +14,11 @@ import Link from 'next/link'
 import Loading from '@/components/ui/loading'
 import ErrorMessage from '@/components/ui/error-message'
 import NoDataMessage from '@/components/ui/no-data-message'
+import {useTranslations} from 'next-intl'
 
 export default function NewReleasesCarousel(): React.ReactNode {
   const {data, isLoading, error} = getNewBooks()
+  const t = useTranslations()
 
   if (isLoading) {
     return <Loading />
@@ -37,7 +39,7 @@ export default function NewReleasesCarousel(): React.ReactNode {
           href="/books/new"
           className="border-b-2 border-transparent hover:border-primary transition-all duration-200 font-bold"
         >
-          New Releases
+          {t('newReleases')}
         </Link>
       </h2>
       <Carousel

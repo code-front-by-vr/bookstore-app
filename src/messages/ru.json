@@ -1,0 +1,89 @@
+{
+  "search": "Искать книги...",
+  "newReleases": "Новые релизы",
+  "newBooks": {
+    "title": "Новые книги",
+    "description": "Найдено {count} книг"
+  },
+  "allBooks": "Смотреть все книги",
+  "category": {
+    "title": "{category}",
+    "description": "Найдено {count} книг"
+  },
+  "searchResults": {
+    "title": "По вашему запросу \"{query}\"",
+    "description": "Найдено {count} книг"
+  },
+  "searchPage": {
+    "title": "Поиск книг",
+    "description": "Найдите книги по названию, автору или жанру",
+    "popularQueries": "Популярные запросы:"
+  },
+  "language": {
+    "en": "English",
+    "ru": "Русский"
+  },
+  "bookInfo": {
+    "author": "Автор",
+    "publisher": "Издательство",
+    "pages": "Страниц",
+    "year": "Год",
+    "description": "Описание"
+  },
+  "favoritesHeader": {
+    "title": "Избранные книги",
+    "description": "{count, plural, one {# книга в ваших избранных} few {# книги в ваших избранных} many {# книг в ваших избранных} other {# книг в ваших избранных}}",
+    "removeMessage": "Вы навсегда удалите все книги из ваших избранных. Это действие не может быть отменено."
+  },
+  "removeAll": {
+    "title": "Удалить все книги",
+    "areYouSure": "Вы уверены?",
+    "description": "Это действие не может быть отменено.",
+    "cancel": "Отмена",
+    "removeAll": "Удалить все"
+  },
+  "booksEmpty": {
+    "title": "Книги не найдены",
+    "description": "Добавьте книги в ваши избранные"
+  },
+  "addToCartButton": {
+    "buy": "Купить",
+    "inCart": "В корзине",
+    "addToCart": "В корзину"
+  },
+  "cartHeader": {
+    "title": "Корзина",
+    "description": "{count, plural, one {# книга в вашей корзине} few {# книги в вашей корзине} many {# книг в вашей корзине} other {# книг в вашей корзине}}",
+    "removeMessage": "Вы навсегда удалите все книги из вашей корзины. Это действие не может быть отменено."
+  },
+  "cartEmpty": {
+    "title": "Ваша корзина пуста",
+    "description": "Добавьте книги в вашу корзину"
+  },
+  "cartSummary": {
+    "subtotal": "Итого",
+    "shipping": "Доставка",
+    "shippingFree": "Бесплатно",
+    "total": "Итого",
+    "checkout": "Оформить заказ"
+  },
+  "subscribeSection": {
+    "title": "Подписаться на рассылку",
+    "description": "Будьте в курсе новых книг, будущих релизов, специальных предложений и многого другого.",
+    "email": "Введите ваш email",
+    "button": "Подписаться",
+    "success": "Спасибо за подписку!"
+  },
+  "footer": {
+    "copyright": "Все права защищены"
+  },
+  "backToCatalog": "Вернуться в каталог",
+  "error": {
+    "title": "Ошибка",
+    "description": "Произошла ошибка при загрузке книг. {error}"
+  },
+  "loading": {
+    "title": "Загрузка книг...",
+    "description": "Пожалуйста, подождите..."
+  }
+}
