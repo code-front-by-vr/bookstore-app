@@ -42,10 +42,10 @@ export default async function LocaleLayout({
   }
 
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
       <body
         className={`${bebasNeue.variable} ${inter.variable} antialiased min-h-dvh flex flex-col`}
-        suppressHydrationWarning={true}
+        suppressHydrationWarning
       >
         <StoreProvider>
           <ThemeProvider>

@@ -1,13 +1,11 @@
 'use client'
 
-import {ThemeProvider as NextThemesProvider} from 'next-themes'
+import {ThemeProvider as NextThemesProvider, ThemeProviderProps} from 'next-themes'
 
-export function ThemeProvider({children}: {children: React.ReactNode}) {
+export function ThemeProvider({children, ...props}: ThemeProviderProps) {
   return (
-    <div suppressHydrationWarning>
-      <NextThemesProvider attribute="class" defaultTheme="system" enableSystem>
-        {children}
-      </NextThemesProvider>
-    </div>
+    <NextThemesProvider attribute="class" defaultTheme="system" enableSystem {...props}>
+      {children}
+    </NextThemesProvider>
   )
 }
