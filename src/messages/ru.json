@@ -6,7 +6,10 @@
     "title": "Новые книги",
     "description": "Найдено {count} книг"
   },
-  "allBooks": "Смотреть все книги",
+  "allBooks": {
+    "title": "Смотреть все книги",
+    "description": "Найдено {count} книг"
+  },
   "category": {
     "title": "{category}",
     "description": "Найдено {count} книг"
@@ -68,7 +71,8 @@
     "shipping": "Доставка",
     "shippingFree": "Бесплатно",
     "total": "Итого",
-    "checkout": "Оформить заказ"
+    "checkout": "Оформить заказ",
+    "perItem": "за шт."
   },
   "subscribeSection": {
     "title": "Подписаться на рассылку",
@@ -81,6 +85,13 @@
     "copyright": "Все права защищены"
   },
   "backToCatalog": "Вернуться в каталог",
+  "navigation": {
+    "favorites": "Избранное",
+    "cart": "Корзина",
+    "profile": "Профиль",
+    "theme": "Тема",
+    "language": "Язык"
+  },
   "error": {
     "title": "Ошибка",
     "description": "Произошла ошибка при загрузке книг. {error}"

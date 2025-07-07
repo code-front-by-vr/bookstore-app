@@ -24,13 +24,13 @@ export default function BookImage({
       />
       <button
         onClick={onToggleFavorite}
-        className="absolute top-1.5 right-1.5 z-10 p-1 rounded-full bg-white/70 hover:bg-white transition"
+        className="absolute top-1.5 right-1.5 z-10 p-1 rounded-full bg-white/70 hover:bg-white dark:bg-gray-800/80 dark:hover:bg-gray-800 transition-all duration-200 backdrop-blur-sm"
         aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
       >
         <Heart
           size={heartSize}
           className={`transition-colors duration-200 ${
-            isFavorite ? 'text-pink-500 fill-pink-500' : 'text-gray-300'
+            isFavorite ? 'text-pink-500 fill-pink-500' : 'text-gray-300 dark:text-gray-400'
           }`}
         />
       </button>

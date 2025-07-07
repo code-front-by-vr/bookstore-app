@@ -54,7 +54,7 @@ export default function SearchInput(): React.ReactNode {
         className="absolute right-1 h-8 w-8  top-1/2 -translate-y-1/2"
         onClick={handleSearchButtonClick}
       >
-        <Search className="w-4 h-4 text-gray-500 " />
+        <Search className="w-4 h-4 text-muted-foreground" />
       </Button>
     </form>
   )

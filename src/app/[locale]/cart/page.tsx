@@ -24,10 +24,20 @@ export default function CartPage() {
     <>
       <CartHeader cartItems={cartItems} handleClearAll={handleClearAll} />
 
-      {cartItems.length === 0 ? <CartEmpty /> : <CartList cartItems={cartItems} />}
+      {cartItems.length === 0 ? (
+        <CartEmpty />
+      ) : (
+        <div className="xl:flex xl:gap-8 xl:max-w-7xl xl:mx-auto xl:px-4">
+          {/* CartList - слева на больших экранах */}
+          <div className="xl:flex-1">
+            <CartList cartItems={cartItems} />
+          </div>
 
-      {cartItems.length > 0 && (
-        <CartSummary totalPrice={totalPrice} handleCheckout={handleCheckout} />
+          {/* CartSummary - справа на больших экранах */}
+          <div className="xl:w-80 xl:flex-shrink-0">
+            <CartSummary totalPrice={totalPrice} handleCheckout={handleCheckout} />
+          </div>
+        </div>
       )}
     </>
   )

@@ -6,7 +6,10 @@
     "title": "New books",
     "description": "Found {count} books"
   },
-  "allBooks": "Browse all books",
+  "allBooks": {
+    "title": "Browse all books",
+    "description": "Found {count} books"
+  },
   "category": {
     "title": "{category}",
     "description": "Found {count} books"
@@ -68,7 +71,8 @@
     "shipping": "Shipping",
     "shippingFree": "Free",
     "total": "Total",
-    "checkout": "Checkout"
+    "checkout": "Checkout",
+    "perItem": "per item"
   },
   "subscribeSection": {
     "title": "Subscribe to our newsletter",
@@ -81,6 +85,13 @@
     "copyright": "All rights reserved"
   },
   "backToCatalog": "Back to catalog",
+  "navigation": {
+    "favorites": "Favorites",
+    "cart": "Cart",
+    "profile": "Profile",
+    "theme": "Theme",
+    "language": "Language"
+  },
   "error": {
     "title": "Error",
     "description": "An error occurred while loading books. {error}"

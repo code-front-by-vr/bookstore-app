@@ -35,16 +35,17 @@ export default function SimilarBooksCarousel({title}: SimilarBooksCarouselProps)
   }
 
   return (
-    <div className="mb-12 border-t pt-8">
-      <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('similarBooks')}</h2>
+    <div className="mb-12 border-t dark:border-gray-700 pt-8">
+      <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
+        {t('similarBooks')}
+      </h2>
       <Carousel
         opts={{
           align: 'start',
-          loop: true,
         }}
         className="w-full px-4"
       >
-        <CarouselContent className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide">
+        <CarouselContent>
           {data.books.slice(0, 10).map((book: BookType) => (
             <CarouselItem
               key={book.isbn13}
@@ -54,8 +55,8 @@ export default function SimilarBooksCarousel({title}: SimilarBooksCarouselProps)
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="hidden lg:flex" />
-        <CarouselNext className="hidden lg:flex" />
+        <CarouselPrevious className="xl:-left-12 left-2 bg-white/80 hover:bg-white dark:bg-gray-800/80 dark:hover:bg-gray-800" />
+        <CarouselNext className="xl:-right-12 right-2 bg-white/80 hover:bg-white dark:bg-gray-800/80 dark:hover:bg-gray-800" />
       </Carousel>
     </div>
   )

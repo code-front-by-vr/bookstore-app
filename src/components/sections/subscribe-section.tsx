@@ -16,23 +16,29 @@ export default function SubscribeSection() {
   }
 
   return (
-    <section className="w-full bg-muted py-12 px-6 flex justify-center">
-      <div className="w-full max-w-xl bg-white rounded-2xl shadow-md p-8 text-center">
-        <h2 className="text-2xl font-bold mb-2">{t('title')}</h2>
-        <p className="text-muted-foreground mb-6 font-inter">{t('description')}</p>
+    <section className="w-full bg-muted py-8 sm:py-12 px-3 sm:px-6 flex justify-center rounded-lg">
+      <div className="w-full max-w-xs sm:max-w-xl bg-white dark:bg-gray-800 rounded-2xl shadow-md dark:shadow-gray-900/20 p-4 sm:p-8 text-center border border-gray-200 dark:border-gray-700">
+        <h2 className="text-xl sm:text-2xl font-bold mb-2">{t('title')}</h2>
+        <p className="text-muted-foreground mb-4 sm:mb-6 font-inter text-sm sm:text-base">
+          {t('description')}
+        </p>
         {submitted ? (
-          <p className="text-green-600 font-medium font-inter">{t('success')}</p>
+          <p className="text-green-600 dark:text-green-400 font-medium font-inter text-sm sm:text-base">
+            {t('success')}
+          </p>
         ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <Input
               type="email"
               placeholder={t('email')}
               value={email}
               required
               onChange={e => setEmail(e.target.value)}
-              className="flex-1 font-inter"
+              className="flex-1 font-inter text-sm sm:text-base"
             />
-            <Button type="submit">{t('button')}</Button>
+            <Button type="submit" className="text-sm sm:text-base">
+              {t('button')}
+            </Button>
           </form>
         )}
       </div>

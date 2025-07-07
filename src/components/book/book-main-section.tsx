@@ -10,7 +10,7 @@ export default function BookMainSection({
   return (
     <div className="flex flex-col lg:flex-row gap-12 mb-12">
       <div className="lg:w-80 flex-shrink-0">
-        <div className="relative aspect-[3/4] w-full max-w-80 mx-auto overflow-hidden rounded-lg bg-gray-50">
+        <div className="relative aspect-[3/4] w-full max-w-80 mx-auto overflow-hidden rounded-lg bg-gray-50 dark:bg-gray-800">
           <BookImage
             src={data.image}
             alt={data.title}

@@ -1,10 +1,17 @@
 'use client'
 
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from '@/components/ui/select'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
+import {Button} from '@/components/ui/button'
 import {routing} from '@/i18n/routing'
 import {usePathname, useRouter} from '@/i18n/navigation'
 import {useParams} from 'next/navigation'
 import {ReactNode} from 'react'
+import {ChevronDown} from 'lucide-react'
 
 type Props = {
   children: ReactNode
@@ -14,7 +21,6 @@ type Props = {
 
 export default function LocaleSwitcherSelect({defaultValue, label}: Props) {
   const router = useRouter()
-
   const pathname = usePathname()
   const params = useParams()
 
@@ -23,20 +29,28 @@ export default function LocaleSwitcherSelect({defaultValue, label}: Props) {
   }
 
   return (
-    <Select defaultValue={defaultValue} onValueChange={onSelectChange}>
-      <SelectTrigger
-        className="w-[60px] h-8 border-none bg-transparent focus:ring-0 focus:ring-offset-0 hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 shadow-none focus:border-none focus-visible:ring-0 focus-visible:ring-offset-0"
-        aria-label={label}
-      >
-        <SelectValue />
-      </SelectTrigger>
-      <SelectContent className="min-w-[60px] w-auto">
+    <DropdownMenu modal={false}>
+      <DropdownMenuTrigger asChild>
+        <Button
+          variant="ghost"
+          className="w-[60px] h-8 border-none bg-transparent focus:ring-0 focus:ring-offset-0 hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 shadow-none focus:border-none focus-visible:ring-0 focus-visible:ring-offset-0 px-2 text-base font-medium justify-between"
+          aria-label={label}
+        >
+          {defaultValue.toUpperCase()}
+          <ChevronDown className="h-3 w-3 opacity-50" />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="min-w-[60px] w-auto" align="end">
         {routing.locales.map(locale => (
-          <SelectItem key={locale} value={locale}>
+          <DropdownMenuItem
+            key={locale}
+            onClick={() => onSelectChange(locale)}
+            className="font-inter text-sm justify-center"
+          >
             {locale.toUpperCase()}
-          </SelectItem>
+          </DropdownMenuItem>
         ))}
-      </SelectContent>
-    </Select>
+      </DropdownMenuContent>
+    </DropdownMenu>
   )
 }

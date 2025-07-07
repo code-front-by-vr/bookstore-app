@@ -17,25 +17,32 @@ import {useTranslations} from 'next-intl'
 
 export default function BooksCarousel({category, title}: BooksCarouselProps): React.ReactNode {
   const {data, isLoading, error} = getBooksByCategory(category)
-  const t = useTranslations()
+  const t = useTranslations('allBooks')
   if (isLoading) return <Loading />
   if (error) return <ErrorMessage error={error.message || 'Unknown error'} />
 
   const renderRoute = () => {
     if (title == 'allBooks') {
-      return '/books/all/'
+      return '/books/all/1'
     }
     return `/category/${category.toLowerCase()}/1`
   }
 
+  const renderTitle = () => {
+    if (title === 'allBooks') {
+      return t('title')
+    }
+    return category
+  }
+
   return (
     <>
-      <h2 className="text-3xl font-bold mb-4 ">
+      <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-gray-100">
         <Link
           href={renderRoute()}
           className="border-b-2 border-transparent hover:border-primary transition-all duration-200"
         >
-          {title ? t(title) : category}
+          {renderTitle()}
         </Link>
       </h2>
       <Carousel
@@ -55,8 +62,8 @@ export default function BooksCarousel({category, title}: BooksCarouselProps): Re
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious className="xl:-left-12 left-2 bg-white/80 hover:bg-white dark:bg-gray-800/80 dark:hover:bg-gray-800" />
+        <CarouselNext className="xl:-right-12 right-2 bg-white/80 hover:bg-white dark:bg-gray-800/80 dark:hover:bg-gray-800" />
       </Carousel>
     </>
   )

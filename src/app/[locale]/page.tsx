@@ -9,7 +9,7 @@ export default async function MainPage(): Promise<React.ReactNode> {
       <BooksCarousel category="JavaScript" />
       <BooksCarousel category="Python" />
       <BooksCarousel category="React" />
-      <BooksCarousel category="Node.js" />
+      <BooksCarousel category="NodeJS" />
       <BooksCarousel category="Java" />
       <BooksCarousel category="PHP" />
       <BooksCarousel category="Programming" title="allBooks" />

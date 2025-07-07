@@ -127,7 +127,6 @@ export type AddToCartButtonProps = {
   className?: string
   size?: 'default' | 'sm' | 'lg'
 }
-
 export type SectionHeaderProps = {
   title: string
   description: string

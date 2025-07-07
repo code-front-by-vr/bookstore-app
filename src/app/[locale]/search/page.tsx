@@ -4,14 +4,16 @@ import HomeLink from '@/components/layout/home-link'
 
 export default function SearchPage() {
   return (
-    <>
-      <SearchHeader />
+    <div className="min-h-[75vh] flex flex-col justify-center items-center">
+      <div className="w-full max-w-6xl mx-auto space-y-8">
+        <SearchHeader />
 
-      <SearchSection />
+        <SearchSection />
 
-      <div className="text-center">
-        <HomeLink />
+        <div className="text-center">
+          <HomeLink />
+        </div>
       </div>
-    </>
+    </div>
   )
 }

@@ -20,6 +20,10 @@ export function getBooksByCategory(
   return useSWR(ENDPOINTS.search(category, page), fetcher)
 }
 
+export function getAllBooks(page: string = '1'): SWRResponse<BooksResponse, Error> {
+  return useSWR(ENDPOINTS.all(page), fetcher)
+}
+
 export function searchBooks(query: string, page: string = '1'): SWRResponse<BooksResponse, Error> {
   const key = query.trim() ? ENDPOINTS.search(query, page) : null
   return useSWR(key, fetcher)

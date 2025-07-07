@@ -8,7 +8,7 @@ import {ENDPOINTS} from '@/config/api/endpoints'
 import {getTranslations} from 'next-intl/server'
 
 export async function generateStaticParams() {
-  const categories = ['javascript', 'python', 'react', 'node.js', 'java', 'php']
+  const categories = ['javascript', 'python', 'react', 'nodejs', 'java', 'php']
   const pagesPerCategory = 3
 
   const params = []
@@ -27,10 +27,11 @@ export async function generateStaticParams() {
 export default async function CategoryPage({
   params,
 }: {
-  params: {category: string[]}
+  params: Promise<{category: string[]}>
 }): Promise<React.ReactNode> {
+  const resolvedParams = await params
   const t = await getTranslations('category')
-  const [category, currentPage = '1'] = params.category
+  const [category, currentPage = '1'] = resolvedParams.category
 
   const res = await fetch(ENDPOINTS.search(category, currentPage))
 
@@ -46,8 +47,12 @@ export default async function CategoryPage({
 
   return (
     <div className="container mx-auto px-4 py-8 space-y-8">
-      <h3 className="text-3xl font-bold  capitalize">{t('title', {category})}</h3>
-      <p className="text-gray-600  text-sm font-inter">{t('description', {count: data.total})}</p>
+      <h3 className="text-3xl font-bold text-gray-900 dark:text-gray-100 capitalize">
+        {t('title', {category})}
+      </h3>
+      <p className="text-gray-600 dark:text-gray-400 text-sm font-inter">
+        {t('description', {count: data.total})}
+      </p>
       <BooksLists books={data.books} />
       <PaginationBlock query={category} currentPage={currentPage} totalItems={data.total} />
     </div>

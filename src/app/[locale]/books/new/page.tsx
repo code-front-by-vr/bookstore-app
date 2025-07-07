@@ -26,8 +26,8 @@ export default function NewBooksPage(): React.ReactNode {
 
   return (
     <>
-      <h3 className="text-3xl font-bold mb-6 ">{t('title')}</h3>
-      <p className="text-gray-600 mb-4 text-sm font-inter">
+      <h3 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6">{t('title')}</h3>
+      <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm font-inter">
         {t('description', {count: data.total})}
       </p>
       <BooksLists books={data.books} />

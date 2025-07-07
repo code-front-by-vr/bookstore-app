@@ -48,14 +48,14 @@ export default function CardBook({
   }
   return (
     <Card key={isbn13} className="border-none shadow-none flex flex-col h-full p-0 gap-2 group">
-      <Link href={`/books/all/${isbn13}`} className="flex flex-col h-full">
+      <Link href={`/books/${isbn13}`} className="flex flex-col h-full">
         <CardHeader className="relative aspect-[3/4] max-h-[200px] overflow-hidden rounded-md p-0 mb-4 ">
           <BookImage
             src={image}
             alt={title}
             isFavorite={isFavorite}
             onToggleFavorite={handleToggleFavorite}
-            className="bg-gray-100 scale-110 group-hover:scale-115 transition-transform duration-200"
+            className="bg-gray-100 dark:bg-gray-800 scale-110 group-hover:scale-115 transition-transform duration-200"
             heartSize={25}
           />
         </CardHeader>
@@ -64,14 +64,14 @@ export default function CardBook({
           <CardTitle className="mb-2 line-clamp-1 sm:line-clamp-2 sm:h-[2rem] h-[2rem]">
             {title}
           </CardTitle>
-          <CardDescription className="text-xs text-gray-500 line-clamp-1 font-inter mb-2">
+          <CardDescription className="text-xs text-gray-500 dark:text-gray-400 line-clamp-1 font-inter mb-2">
             By {data?.authors}, {data?.year}
           </CardDescription>
           <BookRating rating={rating} />
         </CardContent>
 
-        <CardFooter className="mt-auto flex flex-col items-stretch gap-1">
-          <p className="text-sm font-semibold text-primary">{price}</p>
+        <CardFooter className="mt-auto flex flex-col items-stretch gap-1 mb-2">
+          <p className="text-sm font-semibold text-primary ">{price}</p>
         </CardFooter>
       </Link>
 
@@ -82,8 +82,8 @@ export default function CardBook({
             className={`group w-full h-10 px-4 py-2 text-sm font-medium rounded-lg border-2 transition-all duration-200
               ${
                 isInCart
-                  ? 'border-green-500 bg-green-50 text-green-700 hover:bg-green-100'
-                  : 'border-gray-400 text-gray-700 hover:bg-gray-50 hover:border-gray-500'
+                  ? 'border-green-500 bg-green-50 text-green-700 hover:bg-green-100 dark:border-green-400 dark:bg-green-900/20 dark:text-green-400 dark:hover:bg-green-900/30'
+                  : 'border-gray-400 text-gray-700 hover:bg-gray-50 hover:border-gray-500 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-800/50 dark:hover:border-gray-500'
               }
             `}
             onClick={handleClickAddToCart}

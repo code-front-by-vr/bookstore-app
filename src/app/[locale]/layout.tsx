@@ -9,6 +9,7 @@ import StoreProvider from '@/app/[locale]/StoreProvider'
 import {NextIntlClientProvider, hasLocale} from 'next-intl'
 import {notFound} from 'next/navigation'
 import {routing} from '@/i18n/routing'
+import {ThemeProvider} from '@/components/layout/theme-provider'
 
 const bebasNeue = Bebas_Neue({
   subsets: ['latin'],
@@ -47,13 +48,15 @@ export default async function LocaleLayout({
         suppressHydrationWarning={true}
       >
         <StoreProvider>
-          <NextIntlClientProvider>
-            <Header />
-            <main className="flex-1">
-              <Container>{children}</Container>
-            </main>
-            <Footer />
-          </NextIntlClientProvider>
+          <ThemeProvider>
+            <NextIntlClientProvider>
+              <Header />
+              <main className="flex-1">
+                <Container>{children}</Container>
+              </main>
+              <Footer />
+            </NextIntlClientProvider>
+          </ThemeProvider>
         </StoreProvider>
       </body>
     </html>

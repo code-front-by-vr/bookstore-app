@@ -9,7 +9,7 @@ export default function HomeLink() {
     <div className="mb-4">
       <Link
         href="/"
-        className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors font-inter text-sm"
+        className="inline-flex items-center text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 transition-colors font-inter text-sm"
       >
         <ArrowLeft className="w-4 h-4 mr-2" />
         {t('backToCatalog')}
