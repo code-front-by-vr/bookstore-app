@@ -1,103 +1,207 @@
 {
-  "search": "Искать книги...",
-  "newReleases": "Новые релизы",
-  "similarBooks": "Похожие книги",
-  "newBooks": {
-    "title": "Новые книги",
-    "description": "Найдено {count} книг"
+  "addToCartButton": {
+    "addToCart": "В корзину",
+    "buy": "Купить",
+    "inCart": "В корзине"
   },
   "allBooks": {
-    "title": "Смотреть все книги",
-    "description": "Найдено {count} книг"
+    "description": "Найдено {count} книг",
+    "title": "Смотреть все книги"
+  },
+  "auth": {
+    "accountExists": "Аккаунт с таким email уже существует",
+    "agreeToTerms": "Я согласен с",
+    "and": "и",
+    "backToSignIn": "Вернуться к входу",
+    "checkEmail": "Проверьте почту",
+    "confirmPassword": "Подтвердите пароль",
+    "createAccount": "Создать аккаунт",
+    "email": "Email",
+    "emailRequired": "Email обязателен",
+    "enterEmailToReset": "Введите ваш email для сброса пароля",
+    "firstNameRequired": "Имя обязательно",
+    "firstName": "Имя",
+    "forgotPassword": "Забыли пароль?",
+    "haveAccount": "Уже есть аккаунт?",
+    "invalidCredentials": "Неверные данные для входа",
+    "lastNameRequired": "Фамилия обязательна",
+    "lastName": "Фамилия",
+    "loading": "Загрузка...",
+    "noAccount": "Нет аккаунта?",
+    "password": "Пароль",
+    "passwordRequired": "Пароль обязателен",
+    "privacyPolicy": "Политикой конфиденциальности",
+    "rememberMe": "Запомнить меня",
+    "resetLinkSent": "Ссылка для сброса пароля отправлена на ваш email",
+    "resetPassword": "Сбросить пароль",
+    "signIn": "Войти",
+    "signInSubtitle": "Войдите в свой аккаунт",
+    "signInTitle": "Добро пожаловать",
+    "signUp": "Регистрация",
+    "signUpSubtitle": "Присоединяйтесь к нашему сообществу",
+    "signUpTitle": "Создать аккаунт",
+    "termsOfService": "Условиями использования",
+    "weakPassword": "Пароль должен содержать минимум 8 символов"
+  },
+  "backToCatalog": "Вернуться в каталог",
+  "bookInfo": {
+    "author": "Автор",
+    "description": "Описание",
+    "pages": "Страниц",
+    "pdfChapters": "PDF Главы",
+    "pdfChaptersAvailable": "Доступно",
+    "publisher": "Издательство",
+    "year": "Год"
+  },
+  "booksEmpty": {
+    "description": "Добавьте книги в ваши избранные",
+    "title": "Книги не найдены"
+  },
+  "carousel": {
+    "nextSlide": "Следующий слайд",
+    "previousSlide": "Предыдущий слайд"
+  },
+  "cartEmpty": {
+    "description": "Добавьте книги в вашу корзину",
+    "title": "Ваша корзина пуста"
+  },
+  "cartHeader": {
+    "description": "{count, plural, one {# книга в вашей корзине} few {# книги в вашей корзине} many {# книг в вашей корзине} other {# книг в вашей корзине}}",
+    "removeMessage": "Вы навсегда удалите все книги из вашей корзины. Это действие не может быть отменено.",
+    "title": "Корзина"
+  },
+  "cartSummary": {
+    "checkout": "Оформить заказ",
+    "perItem": "за шт.",
+    "shipping": "Доставка",
+    "shippingFree": "Бесплатно",
+    "subtotal": "Итого",
+    "total": "Итого"
   },
   "category": {
-    "title": "{category}",
-    "description": "Найдено {count} книг"
+    "description": "Найдено {count} книг",
+    "title": "{category}"
   },
-  "searchResults": {
-    "title": "По вашему запросу \"{query}\"",
-    "description": "Найдено {count} книг"
+  "error": {
+    "description": "Произошла ошибка при загрузке книг. {error}",
+    "title": "Ошибка"
   },
-  "searchPage": {
-    "title": "Поиск книг",
-    "description": "Найдите книги по названию, автору или жанру",
-    "popularQueries": "Популярные запросы:"
+  "favoritesHeader": {
+    "description": "{count, plural, one {# книга в ваших избранных} few {# книги в ваших избранных} many {# книг в ваших избранных} other {# книг в ваших избранных}}",
+    "removeMessage": "Вы навсегда удалите все книги из ваших избранных. Это действие не может быть отменено.",
+    "title": "Избранные книги"
+  },
+  "footer": {
+    "copyright": "Все права защищены"
   },
   "language": {
     "en": "English",
     "ru": "Русский"
   },
-  "bookInfo": {
-    "author": "Автор",
-    "publisher": "Издательство",
-    "pages": "Страниц",
-    "year": "Год",
-    "description": "Описание",
-    "pdfChapters": "PDF Главы",
-    "pdfChaptersAvailable": "Доступно"
+  "loading": {
+    "description": "Пожалуйста, подождите...",
+    "title": "Загрузка книг..."
   },
-  "favoritesHeader": {
-    "title": "Избранные книги",
-    "description": "{count, plural, one {# книга в ваших избранных} few {# книги в ваших избранных} many {# книг в ваших избранных} other {# книг в ваших избранных}}",
-    "removeMessage": "Вы навсегда удалите все книги из ваших избранных. Это действие не может быть отменено."
+  "navigation": {
+    "cart": "Корзина",
+    "favorites": "Избранное",
+    "language": "Язык",
+    "profile": "Профиль",
+    "theme": "Тема"
+  },
+  "newBooks": {
+    "description": "Найдено {count} книг",
+    "title": "Новые книги"
+  },
+  "newReleases": "Новые релизы",
+  "noData": {
+    "noBooksFound": "Книги не найдены",
+    "nothingFound": "Ничего не найдено"
+  },
+  "pagination": {
+    "morePages": "Больше страниц",
+    "next": "Вперед",
+    "previous": "Назад"
+  },
+  "profile": {
+    "accountSettings": "Настройки аккаунта",
+    "activityActions": {
+      "addedToCart": "Добавлено в корзину",
+      "addedToFavorites": "Добавлено в избранное",
+      "downloaded": "Скачано",
+      "purchased": "Куплено",
+      "rated": "Оценено",
+      "reviewed": "Отзыв написан"
+    },
+    "address": "Адрес",
+    "cancel": "Отмена",
+    "changePassword": "Изменить пароль",
+    "city": "Город",
+    "country": "Страна",
+    "deleteAccount": "Удалить аккаунт",
+    "description": "Управляйте своими настройками и предпочтениями",
+    "disabled": "Выключено",
+    "edit": "Редактировать",
+    "editProfile": "Редактировать профиль",
+    "email": "Email",
+    "enabled": "Включено",
+    "favoriteBooks": "Избранные книги",
+    "memberSince": "Участник с",
+    "name": "Имя",
+    "newsletter": "Рассылка новостей",
+    "newsletterDescription": "Получайте обновления о новых книгах и функциях",
+    "notifications": "Уведомления",
+    "notificationsDescription": "Получайте уведомления о ваших заказах и аккаунте",
+    "off": "Выключено",
+    "on": "Включено",
+    "orderHistory": "История заказов",
+    "personalInfo": "Личная информация",
+    "personalInfoDescription": "Управляйте своими личными данными и контактной информацией",
+    "phone": "Телефон",
+    "postalCode": "Почтовый индекс",
+    "preferences": "Настройки",
+    "preferencesDescription": "Настройте ваши уведомления и предпочтения",
+    "promotions": "Акции и скидки",
+    "promotionsDescription": "Получайте специальные предложения и скидки",
+    "quickStats": "Быстрая статистика",
+    "recentActivity": "Недавняя активность",
+    "save": "Сохранить",
+    "signOut": "Выйти",
+    "subscribed": "Подписан",
+    "title": "Профиль",
+    "totalOrders": "Всего заказов",
+    "totalSpent": "Потрачено",
+    "unsubscribed": "Не подписан"
   },
   "removeAll": {
-    "title": "Удалить все книги",
     "areYouSure": "Вы уверены?",
-    "description": "Это действие не может быть отменено.",
     "cancel": "Отмена",
-    "removeAll": "Удалить все"
+    "description": "Это действие не может быть отменено.",
+    "removeAll": "Удалить все",
+    "title": "Удалить все книги"
   },
-  "booksEmpty": {
-    "title": "Книги не найдены",
-    "description": "Добавьте книги в ваши избранные"
+  "search": "Искать книги...",
+  "searchPage": {
+    "description": "Найдите книги по названию, автору или жанру",
+    "popularQueries": "Популярные запросы:",
+    "title": "Поиск книг"
   },
-  "addToCartButton": {
-    "buy": "Купить",
-    "inCart": "В корзине",
-    "addToCart": "В корзину"
+  "searchResults": {
+    "description": "Найдено {count} книг",
+    "title": "По вашему запросу \"{query}\""
   },
-  "cartHeader": {
-    "title": "Корзина",
-    "description": "{count, plural, one {# книга в вашей корзине} few {# книги в вашей корзине} many {# книг в вашей корзине} other {# книг в вашей корзине}}",
-    "removeMessage": "Вы навсегда удалите все книги из вашей корзины. Это действие не может быть отменено."
-  },
-  "cartEmpty": {
-    "title": "Ваша корзина пуста",
-    "description": "Добавьте книги в вашу корзину"
-  },
-  "cartSummary": {
-    "subtotal": "Итого",
-    "shipping": "Доставка",
-    "shippingFree": "Бесплатно",
-    "total": "Итого",
-    "checkout": "Оформить заказ",
-    "perItem": "за шт."
-  },
+  "similarBooks": "Похожие книги",
   "subscribeSection": {
-    "title": "Подписаться на рассылку",
+    "button": "Подписаться",
     "description": "Будьте в курсе новых книг, будущих релизов, специальных предложений и многого другого.",
     "email": "Введите ваш email",
-    "button": "Подписаться",
-    "success": "Спасибо за подписку!"
+    "success": "Спасибо за подписку!",
+    "title": "Подписаться на рассылку"
   },
-  "footer": {
-    "copyright": "Все права защищены"
-  },
-  "backToCatalog": "Вернуться в каталог",
-  "navigation": {
-    "favorites": "Избранное",
-    "cart": "Корзина",
-    "profile": "Профиль",
-    "theme": "Тема",
-    "language": "Язык"
-  },
-  "error": {
-    "title": "Ошибка",
-    "description": "Произошла ошибка при загрузке книг. {error}"
-  },
-  "loading": {
-    "title": "Загрузка книг...",
-    "description": "Пожалуйста, подождите..."
+  "theme": {
+    "dark": "Темная",
+    "light": "Светлая",
+    "system": "Системная",
+    "toggleTheme": "Переключить тему"
   }
 }

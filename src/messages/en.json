@@ -1,103 +1,207 @@
 {
-  "search": "Search books...",
-  "newReleases": "New releases",
-  "similarBooks": "Similar books",
-  "newBooks": {
-    "title": "New books",
-    "description": "Found {count} books"
+  "addToCartButton": {
+    "addToCart": "Add to cart",
+    "buy": "Buy",
+    "inCart": "In cart"
   },
   "allBooks": {
-    "title": "Browse all books",
-    "description": "Found {count} books"
+    "description": "Found {count} books",
+    "title": "Browse all books"
+  },
+  "auth": {
+    "accountExists": "Account with this email already exists",
+    "agreeToTerms": "I agree to the",
+    "and": "and",
+    "backToSignIn": "Back to sign in",
+    "checkEmail": "Check your email",
+    "confirmPassword": "Confirm Password",
+    "createAccount": "Create account",
+    "email": "Email",
+    "emailRequired": "Email is required",
+    "enterEmailToReset": "Enter your email to reset password",
+    "firstNameRequired": "First name is required",
+    "firstName": "First Name",
+    "forgotPassword": "Forgot password?",
+    "haveAccount": "Already have an account?",
+    "invalidCredentials": "Invalid email or password",
+    "lastNameRequired": "Last name is required",
+    "lastName": "Last Name",
+    "loading": "Loading...",
+    "noAccount": "Don't have an account?",
+    "password": "Password",
+    "passwordRequired": "Password is required",
+    "privacyPolicy": "Privacy Policy",
+    "rememberMe": "Remember me",
+    "resetLinkSent": "Password reset link sent to your email",
+    "resetPassword": "Reset Password",
+    "signIn": "Sign In",
+    "signInSubtitle": "Sign in to your account",
+    "signInTitle": "Welcome back",
+    "signUp": "Sign Up",
+    "signUpSubtitle": "Join our community",
+    "signUpTitle": "Create account",
+    "termsOfService": "Terms of Service",
+    "weakPassword": "Password must be at least 8 characters long"
+  },
+  "backToCatalog": "Back to catalog",
+  "bookInfo": {
+    "author": "Author",
+    "description": "Description",
+    "pages": "Pages",
+    "pdfChapters": "PDF Chapters",
+    "pdfChaptersAvailable": "Available",
+    "publisher": "Publisher",
+    "year": "Year"
+  },
+  "booksEmpty": {
+    "description": "Add some books to your favorites",
+    "title": "No books found"
+  },
+  "carousel": {
+    "nextSlide": "Next slide",
+    "previousSlide": "Previous slide"
+  },
+  "cartEmpty": {
+    "description": "Add some books to get started",
+    "title": "Your cart is empty"
+  },
+  "cartHeader": {
+    "description": "{count, plural, one {# book in your cart} other {# books in your cart}}",
+    "removeMessage": "This will permanently remove all books from your cart. This action cannot be undone.",
+    "title": "Cart"
+  },
+  "cartSummary": {
+    "checkout": "Checkout",
+    "perItem": "per item",
+    "shipping": "Shipping",
+    "shippingFree": "Free",
+    "subtotal": "Subtotal",
+    "total": "Total"
   },
   "category": {
-    "title": "{category}",
-    "description": "Found {count} books"
+    "description": "Found {count} books",
+    "title": "{category}"
   },
-  "searchResults": {
-    "title": "For your query \"{query}\"",
-    "description": "Found {count} books"
+  "error": {
+    "description": "An error occurred while loading books. {error}",
+    "title": "Error"
   },
-  "searchPage": {
-    "title": "Search books",
-    "description": "Find books by title, author or genre",
-    "popularQueries": "Popular queries:"
+  "favoritesHeader": {
+    "description": "{count, plural, one {# book in your favorites} other {# books in your favorites}}",
+    "removeMessage": "This will permanently remove all books from your favorites. This action cannot be undone.",
+    "title": "My favorites books"
+  },
+  "footer": {
+    "copyright": "All rights reserved"
   },
   "language": {
     "en": "English",
     "ru": "Russian"
   },
-  "bookInfo": {
-    "author": "Author",
-    "publisher": "Publisher",
-    "pages": "Pages",
-    "year": "Year",
-    "description": "Description",
-    "pdfChapters": "PDF Chapters",
-    "pdfChaptersAvailable": "Available"
+  "loading": {
+    "description": "Please wait...",
+    "title": "Loading books..."
   },
-  "favoritesHeader": {
-    "title": "My favorites books",
-    "description": "{count, plural, one {# book in your favorites} other {# books in your favorites}}",
-    "removeMessage": "This will permanently remove all books from your favorites. This action cannot be undone."
+  "navigation": {
+    "cart": "Cart",
+    "favorites": "Favorites",
+    "language": "Language",
+    "profile": "Profile",
+    "theme": "Theme"
+  },
+  "newBooks": {
+    "description": "Found {count} books",
+    "title": "New books"
+  },
+  "newReleases": "New releases",
+  "noData": {
+    "noBooksFound": "No books found",
+    "nothingFound": "Nothing found"
+  },
+  "pagination": {
+    "morePages": "More pages",
+    "next": "Next",
+    "previous": "Previous"
+  },
+  "profile": {
+    "accountSettings": "Account Settings",
+    "activityActions": {
+      "addedToCart": "Added to Cart",
+      "addedToFavorites": "Added to Favorites",
+      "downloaded": "Downloaded",
+      "purchased": "Purchased",
+      "rated": "Rated",
+      "reviewed": "Reviewed"
+    },
+    "address": "Address",
+    "cancel": "Cancel",
+    "changePassword": "Change Password",
+    "city": "City",
+    "country": "Country",
+    "deleteAccount": "Delete Account",
+    "description": "Manage your account settings and preferences",
+    "disabled": "Disabled",
+    "edit": "Edit",
+    "editProfile": "Edit Profile",
+    "email": "Email",
+    "enabled": "Enabled",
+    "favoriteBooks": "Favorite Books",
+    "memberSince": "Member since",
+    "name": "Name",
+    "newsletter": "Newsletter",
+    "newsletterDescription": "Get updates about new books and features",
+    "notifications": "Notifications",
+    "notificationsDescription": "Receive notifications about your orders and account",
+    "off": "Off",
+    "on": "On",
+    "orderHistory": "Order History",
+    "personalInfo": "Personal Information",
+    "personalInfoDescription": "Manage your personal information and contact details",
+    "phone": "Phone",
+    "postalCode": "Postal Code",
+    "preferences": "Preferences",
+    "preferencesDescription": "Configure your notification and communication preferences",
+    "promotions": "Promotions",
+    "promotionsDescription": "Receive special offers and discounts",
+    "quickStats": "Quick Stats",
+    "recentActivity": "Recent Activity",
+    "save": "Save",
+    "signOut": "Sign Out",
+    "subscribed": "Subscribed",
+    "title": "Profile",
+    "totalOrders": "Total Orders",
+    "totalSpent": "Total Spent",
+    "unsubscribed": "Unsubscribed"
   },
   "removeAll": {
-    "title": "Remove all books",
     "areYouSure": "Are you sure?",
-    "description": "This action cannot be undone.",
     "cancel": "Cancel",
-    "removeAll": "Remove all"
+    "description": "This action cannot be undone.",
+    "removeAll": "Remove all",
+    "title": "Remove all books"
   },
-  "booksEmpty": {
-    "title": "No books found",
-    "description": "Add some books to your favorites"
+  "search": "Search books...",
+  "searchPage": {
+    "description": "Find books by title, author or genre",
+    "popularQueries": "Popular queries:",
+    "title": "Search books"
   },
-  "addToCartButton": {
-    "buy": "Buy",
-    "inCart": "In cart",
-    "addToCart": "Add to cart"
+  "searchResults": {
+    "description": "Found {count} books",
+    "title": "For your query \"{query}\""
   },
-  "cartHeader": {
-    "title": "Cart",
-    "description": "{count, plural, one {# book in your cart} other {# books in your cart}}",
-    "removeMessage": "This will permanently remove all books from your cart. This action cannot be undone."
-  },
-  "cartEmpty": {
-    "title": "Your cart is empty",
-    "description": "Add some books to get started"
-  },
-  "cartSummary": {
-    "subtotal": "Subtotal",
-    "shipping": "Shipping",
-    "shippingFree": "Free",
-    "total": "Total",
-    "checkout": "Checkout",
-    "perItem": "per item"
-  },
+  "similarBooks": "Similar books",
   "subscribeSection": {
-    "title": "Subscribe to our newsletter",
+    "button": "Subscribe",
     "description": "Be the first to know about new IT books, upcoming releases, exclusive offers and more.",
     "email": "Enter your email",
-    "button": "Subscribe",
-    "success": "Thanks for subscribing!"
+    "success": "Thanks for subscribing!",
+    "title": "Subscribe to our newsletter"
   },
-  "footer": {
-    "copyright": "All rights reserved"
-  },
-  "backToCatalog": "Back to catalog",
-  "navigation": {
-    "favorites": "Favorites",
-    "cart": "Cart",
-    "profile": "Profile",
-    "theme": "Theme",
-    "language": "Language"
-  },
-  "error": {
-    "title": "Error",
-    "description": "An error occurred while loading books. {error}"
-  },
-  "loading": {
-    "title": "Loading books...",
-    "description": "Please wait..."
+  "theme": {
+    "dark": "Dark",
+    "light": "Light",
+    "system": "System",
+    "toggleTheme": "Toggle theme"
   }
 }

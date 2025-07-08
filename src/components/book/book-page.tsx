@@ -36,9 +36,6 @@ export default function BookPage({book}: {book: BookType}) {
               heartSize={25}
             />
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-200 pointer-events-none" />
-            <div className="absolute bottom-2 left-2 right-2 text-center text-xs text-white bg-black/50 rounded px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-              Click to enlarge
-            </div>
           </div>
         </div>
 

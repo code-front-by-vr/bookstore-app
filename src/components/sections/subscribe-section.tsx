@@ -4,14 +4,27 @@ import {Input} from '@/components/ui/input'
 import {Button} from '@/components/ui/button'
 import {useState} from 'react'
 import {useTranslations} from 'next-intl'
+import {EmailSchema, EmailFormType} from '@/schemas/common/email-schema'
+
+import {useForm} from 'react-hook-form'
+import {zodResolver} from '@hookform/resolvers/zod'
 
 export default function SubscribeSection() {
-  const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const t = useTranslations('subscribeSection')
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+  const {
+    register,
+    handleSubmit,
+    formState: {errors},
+  } = useForm<EmailFormType>({
+    resolver: zodResolver(EmailSchema),
+    defaultValues: {
+      email: '',
+    },
+  })
+
+  function onSubmit(data: EmailFormType) {
     setSubmitted(true)
   }
 
@@ -27,18 +40,22 @@ export default function SubscribeSection() {
             {t('success')}
           </p>
         ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4"
+          >
             <Input
               type="email"
               placeholder={t('email')}
-              value={email}
-              required
-              onChange={e => setEmail(e.target.value)}
+              {...register('email')}
               className="flex-1 font-inter text-sm sm:text-base"
             />
             <Button type="submit" className="text-sm sm:text-base">
               {t('button')}
             </Button>
+            {errors.email && (
+              <p className="text-red-500 font-inter text-sm sm:text-base">{errors.email.message}</p>
+            )}
           </form>
         )}
       </div>
