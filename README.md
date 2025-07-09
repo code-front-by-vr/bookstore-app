@@ -24,7 +24,7 @@ npm run dev
 npm run build
 ```
 
-Приложение будет доступно по адресу [http://localhost:3000](http://localhost:3000)
+Приложение будет доступно по адресу: https://bookstore-app-beryl.vercel.app/en
 
 ## Основные возможности
 

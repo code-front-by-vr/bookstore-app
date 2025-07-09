@@ -27,6 +27,9 @@ export const metadata: Metadata = {
   title: 'BookStore - Онлайн магазин книг',
   description:
     'Найдите и купите любимые книги в нашем онлайн книжном магазине. Широкий выбор IT-литературы, новинки и бестселлеры.',
+  icons: {
+    icon: '/favicon.ico',
+  },
 }
 
 export default async function LocaleLayout({
