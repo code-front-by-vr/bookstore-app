@@ -7,25 +7,8 @@ import {useTranslations} from 'next-intl'
 import Container from '@/components/layout/container'
 import {useAppDispatch, useAppSelector} from '@/lib/redux/hooks'
 import HomeLink from '@/components/layout/home-link'
-import {fetchUser} from '@/lib/redux/features/user-slice'
+import {fetchUser, updateUser} from '@/lib/redux/features/user-slice'
 import {useEffect} from 'react'
-
-// Mock data for profile page
-// const mockUser = {
-//   name: 'Александр Иванов',
-//   email: 'alexander.ivanov@example.com',
-//   phone: '+7 (999) 123-45-67',
-//   address: 'ул. Пушкина, дом 15, кв. 42',
-//   city: 'Минск',
-//   country: 'Беларусь',
-//   postalCode: '101000',
-//   memberSince: 'июль 2025',
-//   totalOrders: 15,
-//   totalSpent: '$2,450',
-//   notifications: true,
-//   newsletter: true,
-//   promotions: true,
-// }
 
 // for getting user stats
 const getUserStats = (favoritesCount: number) => ({
@@ -77,8 +60,8 @@ const getUserStats = (favoritesCount: number) => ({
 export default function ProfilePage() {
   const router = useRouter()
   const t = useTranslations('profile')
-  const dispatch = useAppDispatch()
 
+  const dispatch = useAppDispatch()
   const {userData: user, isHydrated} = useAppSelector(state => state.user)
   const favoritesCount = useAppSelector(state => state.favorite.items.length)
 
@@ -86,9 +69,12 @@ export default function ProfilePage() {
     dispatch(fetchUser())
   }, [dispatch])
 
-  const handleSignOut = () => {
-    console.log('Sign out clicked')
+  function handleSignOut() {
     router.push('/auth/signin')
+  }
+
+  function handleAvatarUpdate(avatarUrl: string) {
+    dispatch(updateUser({avatar: avatarUrl}))
   }
 
   return (
@@ -97,14 +83,20 @@ export default function ProfilePage() {
         <HomeLink />
         <div className="pt-1 md:pt-2 pb-3 sm:pb-4 md:pb-6 lg:pb-8 space-y-3 sm:space-y-4 md:space-y-6 lg:space-y-8">
           <div className="space-y-1 md:space-y-2">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bebas-neue tracking-wide">
+            <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bebas-neue tracking-wide">
               {t('title')}
-            </h2>
+            </h3>
             <p className="text-xs sm:text-sm md:text-base text-muted-foreground font-inter">
               {t('description')}
             </p>
           </div>
-          {isHydrated && <ProfileHeader user={user} onSignOut={handleSignOut} />}
+          {isHydrated && (
+            <ProfileHeader
+              user={user}
+              onSignOut={handleSignOut}
+              onAvatarUpdate={handleAvatarUpdate}
+            />
+          )}
           {isHydrated && <ProfileSections user={user} stats={getUserStats(favoritesCount)} />}
         </div>
       </Container>

@@ -8,8 +8,9 @@ import {toggleFavorite} from '@/lib/redux/features/favorites-slice'
 import {useAppSelector} from '@/lib/redux/hooks'
 import {Link} from '@/i18n/navigation'
 import {useTranslations} from 'next-intl'
+import {CartItemType} from '@/types/book'
 
-export default function CartItem({book, quantity}: {book: BookType; quantity: number}) {
+export default function CartItem({book, quantity}: CartItemType) {
   const dispatch = useDispatch()
   const t = useTranslations('cartSummary')
 

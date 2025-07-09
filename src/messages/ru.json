@@ -171,7 +171,8 @@
     "title": "Профиль",
     "totalOrders": "Всего заказов",
     "totalSpent": "Потрачено",
-    "unsubscribed": "Не подписан"
+    "unsubscribed": "Не подписан",
+    "uploadAvatar": "Загрузить аватар"
   },
   "removeAll": {
     "areYouSure": "Вы уверены?",

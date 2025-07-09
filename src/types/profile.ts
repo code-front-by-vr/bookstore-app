@@ -12,7 +12,7 @@ export type User = {
   memberSince: string
   totalOrders: number
   totalSpent: string
-  avatar?: string
+  avatar?: string | null
   notifications: boolean
   newsletter: boolean
   promotions: boolean
@@ -42,6 +42,7 @@ export type Stats = {
 export type ProfileHeaderProps = {
   user: Pick<User, 'name' | 'email' | 'memberSince' | 'totalOrders' | 'totalSpent' | 'avatar'>
   onSignOut: () => void
+  onAvatarUpdate?: (avatarUrl: string) => void
 }
 
 export type ProfilePersonalProps = {

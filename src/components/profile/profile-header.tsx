@@ -1,13 +1,42 @@
 'use client'
 
+import {useRef} from 'react'
 import {Button} from '@/components/ui/button'
 import {Card, CardContent} from '@/components/ui/card'
 import {LogOut, Camera} from 'lucide-react'
 import {useTranslations} from 'next-intl'
 import type {ProfileHeaderProps} from '@/types/profile'
 
-export default function ProfileHeader({user, onSignOut}: ProfileHeaderProps) {
+export default function ProfileHeader({user, onSignOut, onAvatarUpdate}: ProfileHeaderProps) {
   const t = useTranslations('profile')
+  const fileInputRef = useRef<HTMLInputElement>(null)
+
+  function handleClickOpenFileInput() {
+    fileInputRef.current?.click()
+  }
+
+  function handleClickChangeFile(event: React.ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0]
+    if (!file) return
+
+    if (!file.type.startsWith('image/')) {
+      console.error('Пожалуйста, выберите файл изображения')
+      return
+    }
+    if (file.size > 5 * 1024 * 1024) {
+      console.error('Размер файла не должен превышать 5MB')
+      return
+    }
+
+    const imageUrl = URL.createObjectURL(file)
+    onAvatarUpdate?.(imageUrl)
+
+    console.log('Аватар успешно обновлен')
+
+    if (fileInputRef.current) {
+      fileInputRef.current.value = ''
+    }
+  }
 
   return (
     <Card className="bg-gradient-to-r from-primary/5 via-primary/10 to-purple-500/5 dark:from-primary/10 dark:via-primary/20 dark:to-purple-500/10 border-border/60 backdrop-blur-sm">
@@ -37,17 +66,27 @@ export default function ProfileHeader({user, onSignOut}: ProfileHeaderProps) {
               size="icon"
               variant="secondary"
               className="absolute -bottom-0.5 -right-0.5 sm:-bottom-1 sm:-right-1 md:-bottom-2 md:-right-2 w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full shadow-lg group-hover:scale-110 transition-transform"
+              onClick={handleClickOpenFileInput}
+              title={t('uploadAvatar')}
             >
               <Camera className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4" />
             </Button>
+
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              onChange={handleClickChangeFile}
+              className="hidden"
+            />
           </div>
 
           <div className="flex-1 space-y-2 sm:space-y-3 md:space-y-4 min-w-0">
             <div className="space-y-0.5 sm:space-y-1 md:space-y-2">
               <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 md:gap-3">
-                <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bebas-neue tracking-wide truncate">
+                <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bebas-neue tracking-wide truncate">
                   {user.name}
-                </h1>
+                </h2>
               </div>
               <p className="text-xs sm:text-sm md:text-base text-muted-foreground font-inter truncate">
                 {user.email}

@@ -171,7 +171,8 @@
     "title": "Profile",
     "totalOrders": "Total Orders",
     "totalSpent": "Total Spent",
-    "unsubscribed": "Unsubscribed"
+    "unsubscribed": "Unsubscribed",
+    "uploadAvatar": "Upload Avatar"
   },
   "removeAll": {
     "areYouSure": "Are you sure?",

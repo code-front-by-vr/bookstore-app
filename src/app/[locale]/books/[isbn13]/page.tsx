@@ -15,9 +15,10 @@ import BookMainSection from '@/components/book/book-main-section'
 import SimilarBooksCarousel from '@/components/catalog/similar-books-carousel'
 
 export default function BookPage({params}: {params: Promise<{isbn13: string}>}) {
-  const dispatch = useAppDispatch()
   const resolvedParams = use(params)
   const {data, isLoading, error} = getBook(resolvedParams.isbn13)
+
+  const dispatch = useAppDispatch()
   const isFavorite = useAppSelector(state =>
     state.favorite.items.some(book => book.isbn13 === resolvedParams.isbn13)
   )

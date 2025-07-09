@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BookStore App
 
-## Getting Started
+Современный интернет-магазин книг на Next.js с поддержкой мультиязычности и темной темы.
 
-First, run the development server:
+## Технологии
+
+- **Frontend**: Next.js 15, React 19, TypeScript
+- **Стилизация**: Tailwind CSS, Radix UI
+- **Состояние**: Redux Toolkit, SWR
+- **Формы**: React Hook Form + Zod
+- **Интернационализация**: next-intl (EN/RU)
+- **Тестирование**: Jest, React Testing Library
+
+## Быстрый старт
 
 ```bash
+# Установка зависимостей
+npm install
+
+# Запуск разработки
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Сборка для продакшена
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Приложение будет доступно по адресу [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Основные возможности
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Готово к использованию:**
 
-## Learn More
+- Каталог книг с поиском и фильтрацией
+- Корзина покупок с локальным хранением
+- Система избранного
+- Переключение языков (EN/RU)
+- Светлая/темная тема
+- Адаптивный дизайн
 
-To learn more about Next.js, take a look at the following resources:
+**Frontend готов, требует API:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Система аутентификации
+- Профиль пользователя
+- История заказов
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Архитектура
 
-## Deploy on Vercel
+```
+src/
+├── app/[locale]/          # Страницы с локализацией
+├── components/            # React компоненты
+│   ├── ui/               # Базовые UI элементы
+│   ├── auth/             # Формы аутентификации
+│   ├── book/             # Компоненты книг
+│   └── cart/             # Корзина покупок
+├── lib/redux/            # Redux store
+├── types/                # TypeScript типы
+├── messages/             # Переводы (en.json, ru.json)
+└── schemas/              # Zod схемы валидации
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Доступные команды
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run dev          # Разработка с Turbopack
+npm run build        # Сборка
+npm run start        # Запуск продакшена
+npm run lint         # Проверка кода
+npm run format       # Форматирование
+npm run test         # Тестирование
+```
+
+## API
+
+Проект использует [IT BookStore API](https://api.itbook.store) для получения данных о книгах.
+Остальная функциональность работает с mock-данными и localStorage.
+
+## Особенности
+
+- 100% покрытие TypeScript
+- Строгая валидация форм
+- Оптимизация производительности
+- Полная адаптивность
+- Доступность (a11y)
+- SEO оптимизация

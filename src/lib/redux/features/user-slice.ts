@@ -14,6 +14,7 @@ const mockUser = {
   memberSince: 'июль 2025',
   totalOrders: 15,
   totalSpent: '$2,450',
+  avatar: null,
   notifications: true,
   newsletter: true,
   promotions: true,

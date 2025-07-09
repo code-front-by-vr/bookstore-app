@@ -24,7 +24,7 @@ export const cartLocalStorageMiddleware = (store: any) => (next: any) => (action
     action.type === 'cart/decrementQuantity'
   ) {
     const state = store.getState()
-    const cartItems = state.cart.items.map((item: CartItemType) => ({
+    const cartItems = (state as any).cart.items.map((item: CartItemType) => ({
       book: item.book,
       quantity: item.quantity,
     }))

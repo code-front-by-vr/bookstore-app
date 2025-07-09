@@ -35,16 +35,20 @@ export default function CardBook({
     state.favorite.items.some(book => book.isbn13 === isbn13)
   )
 
-  function handleClickAddToCart(e: React.MouseEvent) {
+  function handleClickAddToCart(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault()
     e.stopPropagation()
-    dispatch(addToCart({book: data as BookType, quantity: 1}))
+    if (data) {
+      dispatch(addToCart({book: data, quantity: 1}))
+    }
   }
 
   function handleToggleFavorite(e: React.MouseEvent) {
     e.preventDefault()
     e.stopPropagation()
-    dispatch(toggleFavorite(data as BookType))
+    if (data) {
+      dispatch(toggleFavorite(data))
+    }
   }
   return (
     <Card key={isbn13} className="border-none shadow-none flex flex-col h-full p-0 gap-2 group">
