@@ -5,7 +5,7 @@
 ## Технологии
 
 - **Frontend**: Next.js 15, React 19, TypeScript
-- **Стилизация**: Tailwind CSS, Radix UI
+- **Стилизация**: Tailwind CSS, Shadcn/ui, Radix UI
 - **Состояние**: Redux Toolkit, SWR
 - **Формы**: React Hook Form + Zod
 - **Интернационализация**: next-intl (EN/RU)
