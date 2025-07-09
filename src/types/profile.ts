@@ -1,3 +1,6 @@
+import type {ProfilePersonalSchema} from '@/schemas/profile-schema'
+import {useForm} from 'react-hook-form'
+
 export type User = {
   name: string
   email: string
@@ -60,4 +63,20 @@ export type ProfileRecentActivityProps = {
 export type ProfileSectionsProps = {
   user: Omit<User, 'memberSince' | 'totalOrders' | 'totalSpent' | 'avatar'>
   stats: Stats
+}
+
+export type FieldProps = {
+  label: string
+  icon: React.ReactNode
+  field: keyof ProfilePersonalSchema
+  readOnly: boolean
+  register: ReturnType<typeof useForm<ProfilePersonalSchema>>['register']
+  error?: {message?: string}
+}
+
+export type UserStateType = {
+  userData: User
+  loading: boolean
+  error: string | null
+  isHydrated: boolean
 }

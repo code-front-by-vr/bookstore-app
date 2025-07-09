@@ -15,3 +15,6 @@ export const signUpSchema = signInSchema
     message: 'Пароли не совпадают',
     path: ['confirmPassword'],
   })
+
+export type SignInFormType = z.infer<typeof signInSchema>
+export type SignUpFormType = z.infer<typeof signUpSchema>

@@ -1,32 +1,33 @@
 'use client'
 
-import {useState} from 'react'
 import {useRouter} from 'next/navigation'
 import ProfileHeader from '@/components/profile/profile-header'
 import ProfileSections from '@/components/profile/profile-sections'
 import {useTranslations} from 'next-intl'
 import Container from '@/components/layout/container'
-import {useAppSelector} from '@/lib/redux/hooks'
+import {useAppDispatch, useAppSelector} from '@/lib/redux/hooks'
 import HomeLink from '@/components/layout/home-link'
+import {fetchUser} from '@/lib/redux/features/user-slice'
+import {useEffect} from 'react'
 
 // Mock data for profile page
-const mockUser = {
-  name: 'Александр Иванов',
-  email: 'alexander.ivanov@example.com',
-  phone: '+7 (999) 123-45-67',
-  address: 'ул. Пушкина, дом 15, кв. 42',
-  city: 'Минск',
-  country: 'Беларусь',
-  postalCode: '101000',
-  memberSince: 'июль 2025',
-  totalOrders: 15,
-  totalSpent: '$2,450',
-  notifications: true,
-  newsletter: true,
-  promotions: false,
-}
+// const mockUser = {
+//   name: 'Александр Иванов',
+//   email: 'alexander.ivanov@example.com',
+//   phone: '+7 (999) 123-45-67',
+//   address: 'ул. Пушкина, дом 15, кв. 42',
+//   city: 'Минск',
+//   country: 'Беларусь',
+//   postalCode: '101000',
+//   memberSince: 'июль 2025',
+//   totalOrders: 15,
+//   totalSpent: '$2,450',
+//   notifications: true,
+//   newsletter: true,
+//   promotions: true,
+// }
 
-// for getting real favorites count
+// for getting user stats
 const getUserStats = (favoritesCount: number) => ({
   favoriteBooks: favoritesCount,
   recentOrders: [
@@ -76,9 +77,14 @@ const getUserStats = (favoritesCount: number) => ({
 export default function ProfilePage() {
   const router = useRouter()
   const t = useTranslations('profile')
-  const [isEditMode, setIsEditMode] = useState(false)
+  const dispatch = useAppDispatch()
 
+  const {userData: user, isHydrated} = useAppSelector(state => state.user)
   const favoritesCount = useAppSelector(state => state.favorite.items.length)
+
+  useEffect(() => {
+    dispatch(fetchUser())
+  }, [dispatch])
 
   const handleSignOut = () => {
     console.log('Sign out clicked')
@@ -86,16 +92,20 @@ export default function ProfilePage() {
   }
 
   return (
-    <div className="py-8 px-4 min-h-screen bg-gradient-to-b from-white via-blue-50/30 to-purple-50/20 dark:from-gray-900 dark:via-gray-800/30 dark:to-gray-700/20">
+    <div className="py-2 sm:py-4 md:py-6 lg:py-8 px-2 sm:px-3 md:px-4 min-h-screen bg-gradient-to-b from-white via-blue-50/30 to-purple-50/20 dark:from-gray-900 dark:via-gray-800/30 dark:to-gray-700/20">
       <Container>
         <HomeLink />
-        <div className="pt-2 pb-8 space-y-8">
-          <div className="space-y-2">
-            <h2 className="text-3xl lg:text-4xl font-bebas-neue tracking-wide">{t('title')}</h2>
-            <p className="text-muted-foreground font-inter">{t('description')}</p>
+        <div className="pt-1 md:pt-2 pb-3 sm:pb-4 md:pb-6 lg:pb-8 space-y-3 sm:space-y-4 md:space-y-6 lg:space-y-8">
+          <div className="space-y-1 md:space-y-2">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bebas-neue tracking-wide">
+              {t('title')}
+            </h2>
+            <p className="text-xs sm:text-sm md:text-base text-muted-foreground font-inter">
+              {t('description')}
+            </p>
           </div>
-          <ProfileHeader user={mockUser} onSignOut={handleSignOut} />
-          <ProfileSections user={mockUser} stats={getUserStats(favoritesCount)} />
+          {isHydrated && <ProfileHeader user={user} onSignOut={handleSignOut} />}
+          {isHydrated && <ProfileSections user={user} stats={getUserStats(favoritesCount)} />}
         </div>
       </Container>
     </div>

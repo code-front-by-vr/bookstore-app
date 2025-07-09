@@ -1,16 +1,14 @@
 import {useState} from 'react'
 import {useTranslations} from 'next-intl'
-import {useForm} from 'react-hook-form'
-import {zodResolver} from '@hookform/resolvers/zod'
-import {signUpSchema} from '@/schemas/auth-schema'
 import {AuthCardLayout} from './auth-card-layout'
 import {Input} from '../ui/input'
 import {Button} from '../ui/button'
 import {Eye, EyeOff, Lock, Mail, User} from 'lucide-react'
-import {z} from 'zod'
 import Link from 'next/link'
 
-export type SignUpFormType = z.infer<typeof signUpSchema>
+import {zodResolver} from '@hookform/resolvers/zod'
+import {signUpSchema, type SignUpFormType} from '@/schemas/auth-schema'
+import {useForm} from 'react-hook-form'
 
 export function SignUpForm({onSubmit}: {onSubmit: (data: SignUpFormType) => Promise<void>}) {
   const t = useTranslations('auth')

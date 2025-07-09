@@ -1,7 +1,7 @@
 'use client'
 
 import {SignInForm} from '@/components/auth/sign-in-form'
-import type {SignInFormType} from '@/components/auth/sign-in-form'
+import type {SignInFormType} from '@/schemas/auth-schema'
 
 export default function SignInPage() {
   async function onSubmit(data: SignInFormType) {

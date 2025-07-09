@@ -5,6 +5,7 @@ import {Provider} from 'react-redux'
 import {makeStore, AppStore} from '@/lib/redux/store'
 import {fetchFavorites} from '@/lib/redux/features/favorites-slice'
 import {fetchCart} from '@/lib/redux/features/cart-slice'
+import {fetchUser} from '@/lib/redux/features/user-slice'
 
 export default function StoreProvider({children}: {children: React.ReactNode}) {
   const storeRef = useRef<AppStore | undefined>(undefined)
@@ -17,6 +18,7 @@ export default function StoreProvider({children}: {children: React.ReactNode}) {
     if (storeRef.current) {
       storeRef.current.dispatch(fetchFavorites())
       storeRef.current.dispatch(fetchCart())
+      storeRef.current.dispatch(fetchUser())
     }
   }, [])
 

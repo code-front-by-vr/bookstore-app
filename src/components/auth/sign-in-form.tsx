@@ -4,14 +4,11 @@ import {Input} from '../ui/input'
 import {Eye, EyeOff, Lock, Mail} from 'lucide-react'
 import {Button} from '../ui/button'
 
-import {z} from 'zod'
 import {useForm} from 'react-hook-form'
 import Link from 'next/link'
 import {zodResolver} from '@hookform/resolvers/zod'
-import {signInSchema} from '@/schemas/auth-schema'
+import {signInSchema, type SignInFormType} from '@/schemas/auth-schema'
 import {useTranslations} from 'next-intl'
-
-export type SignInFormType = z.infer<typeof signInSchema>
 
 export function SignInForm({onSubmit}: {onSubmit: (data: SignInFormType) => Promise<void>}) {
   const t = useTranslations('auth')
