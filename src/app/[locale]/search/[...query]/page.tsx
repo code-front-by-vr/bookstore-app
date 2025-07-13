@@ -1,6 +1,6 @@
 'use client'
 
-import {searchBooks} from '@/config/api/book'
+import {searchBooks} from '@/services/api/book'
 import BooksLists from '@/components/catalog/books-list'
 import {PaginationBlock} from '@/components/ui/pagination-block'
 import {use} from 'react'

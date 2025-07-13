@@ -1,7 +1,7 @@
 'use client'
 
 import {use} from 'react'
-import {getBook} from '@/config/api/book'
+import {getBook} from '@/services/api/book'
 import SubscribeSection from '@/components/sections/subscribe-section'
 import Loading from '@/components/ui/loading'
 import ErrorMessage from '@/components/ui/error-message'

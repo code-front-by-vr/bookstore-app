@@ -7,7 +7,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
-import {getSimilarBooks} from '@/config/api/book'
+import {getSimilarBooks} from '@/services/api/book'
 import {BookType} from '@/types/book'
 import CardBook from '@/components/book/card-book'
 import Loading from '@/components/ui/loading'

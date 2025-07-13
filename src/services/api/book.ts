@@ -2,7 +2,7 @@
 
 import {fetcher} from '@/config/fetcher'
 import {BooksResponse, BookType} from '@/types/book'
-import {ENDPOINTS} from '@/config/api/endpoints'
+import {ENDPOINTS} from '@/services/api/endpoints'
 import useSWR, {type SWRResponse} from 'swr'
 
 export function getNewBooks(): SWRResponse<BooksResponse, Error> {

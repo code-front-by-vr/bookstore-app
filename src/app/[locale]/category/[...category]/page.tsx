@@ -4,7 +4,7 @@ import {PaginationBlock} from '@/components/ui/pagination-block'
 import type {BooksResponse} from '@/types/book'
 import NoDataMessage from '@/components/ui/no-data-message'
 import ErrorMessage from '@/components/ui/error-message'
-import {ENDPOINTS} from '@/config/api/endpoints'
+import {ENDPOINTS} from '@/services/api/endpoints'
 import {getTranslations} from 'next-intl/server'
 
 export async function generateStaticParams() {

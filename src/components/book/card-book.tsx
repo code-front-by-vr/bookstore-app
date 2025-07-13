@@ -1,6 +1,6 @@
 'use client'
 
-import {getBook} from '@/config/api/book'
+import {getBook} from '@/services/api/book'
 import {BookType} from '@/types/book'
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from '../ui/card'
 import {Check, ShoppingCart} from 'lucide-react'

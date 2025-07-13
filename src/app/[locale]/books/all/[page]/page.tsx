@@ -6,7 +6,7 @@ import ErrorMessage from '@/components/ui/error-message'
 import NoDataMessage from '@/components/ui/no-data-message'
 import Loading from '@/components/ui/loading'
 import {PaginationBlock} from '@/components/ui/pagination-block'
-import {getAllBooks} from '@/config/api/book'
+import {getAllBooks} from '@/services/api/book'
 import {useTranslations} from 'next-intl'
 
 export default function AllBooksPage({params}: {params: Promise<{page: string}>}): React.ReactNode {

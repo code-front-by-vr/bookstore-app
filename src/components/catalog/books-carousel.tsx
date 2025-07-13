@@ -7,7 +7,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
-import {getBooksByCategory} from '@/config/api/book'
+import {getBooksByCategory} from '@/services/api/book'
 import {BookType, BooksCarouselProps} from '@/types/book'
 import CardBook from '@/components/book/card-book'
 import Link from 'next/link'

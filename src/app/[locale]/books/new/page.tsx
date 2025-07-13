@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import {getNewBooks} from '@/config/api/book'
+import {getNewBooks} from '@/services/api/book'
 import BooksLists from '@/components/catalog/books-list'
 import ErrorMessage from '@/components/ui/error-message'
 import NoDataMessage from '@/components/ui/no-data-message'

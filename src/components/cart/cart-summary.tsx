@@ -100,7 +100,7 @@ export default function CartSummary({totalPrice, handleCheckout}: CartSummaryPro
         </div>
       </div>
 
-      {/* Spacer для мобильной версии - чтобы контент не перекрывался */}
+      {/* Spacer for mobile version - to prevent content from being covered */}
       <div className="md:hidden h-32"></div>
     </>
   )

@@ -23,6 +23,6 @@ jest.mock('@/lib/redux/hooks', () => ({
 }))
 
 // Мокаем API
-jest.mock('@/config/api/book', () => ({
+jest.mock('@/services/api/book', () => ({
   getBook: () => ({data: null}),
 }))
