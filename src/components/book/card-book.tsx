@@ -53,7 +53,7 @@ export default function CardBook({
   return (
     <Card key={isbn13} className="border-none shadow-none flex flex-col h-full p-0 gap-2 group">
       <Link href={`/books/${isbn13}`} className="flex flex-col h-full">
-        <CardHeader className="relative aspect-[3/4] max-h-[200px] overflow-hidden rounded-md p-0 mb-4 ">
+        <CardHeader className="relative aspect-[4/5] sm:aspect-[3/4] max-h-[300px] sm:max-h-[200px] overflow-hidden rounded-md p-0 mb-4 ">
           <BookImage
             src={image}
             alt={title}

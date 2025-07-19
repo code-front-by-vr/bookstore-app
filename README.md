@@ -24,7 +24,7 @@ npm run dev
 npm run build
 ```
 
-Приложение будет доступно по адресу: https://bookstore-app-beryl.vercel.app/en
+Приложение будет доступно по адресу: https://bookstore-app-beryl.vercel.app
 
 ## Основные возможности
 

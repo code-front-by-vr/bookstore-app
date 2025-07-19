@@ -48,7 +48,7 @@ export default function SubscribeSection() {
               type="email"
               placeholder={t('email')}
               {...register('email')}
-              className="flex-1 font-inter text-sm sm:text-base"
+              className="flex-1 font-inter text-base sm:text-base h-11 sm:h-9 px-4 py-2 sm:px-3 sm:py-1"
             />
             <Button type="submit" className="text-sm sm:text-base">
               {t('button')}

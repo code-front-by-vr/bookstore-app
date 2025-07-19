@@ -79,8 +79,8 @@ export default function ProfilePage() {
 
   return (
     <div className="py-2 sm:py-4 md:py-6 lg:py-8 px-2 sm:px-3 md:px-4 min-h-screen bg-gradient-to-b from-white via-blue-50/30 to-purple-50/20 dark:from-gray-900 dark:via-gray-800/30 dark:to-gray-700/20">
+      <HomeLink />
       <Container>
-        <HomeLink />
         <div className="pt-1 md:pt-2 pb-3 sm:pb-4 md:pb-6 lg:pb-8 space-y-3 sm:space-y-4 md:space-y-6 lg:space-y-8">
           <div className="space-y-1 md:space-y-2">
             <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bebas-neue tracking-wide">

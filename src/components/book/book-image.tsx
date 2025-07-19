@@ -20,7 +20,7 @@ export default function BookImage({
         fill
         priority
         className={`object-contain ${className}`}
-        sizes="(max-width: 768px) 50vw, 220px"
+        sizes="(max-width: 768px) 90vw, 220px"
       />
       <button
         onClick={onToggleFavorite}

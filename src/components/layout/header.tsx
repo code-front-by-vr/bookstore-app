@@ -22,7 +22,7 @@ import {
 
 export default function Header(): React.ReactNode {
   const pathname = usePathname()
-  const isMainSearchPage = pathname === '/search'
+  const isMainSearchPage = pathname.endsWith('/search')
   const favoritesCount = useAppSelector(state => state.favorite.items.length)
   const cartItemsCount = useAppSelector(state => state.cart.items.length)
   const [isSearchOpen, setIsSearchOpen] = useState(false)

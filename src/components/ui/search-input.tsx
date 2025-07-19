@@ -19,7 +19,6 @@ export default function SearchInput(): React.ReactNode {
     if (query.trim()) {
       router.push(`/search/${query}/1`)
     }
-    setQuery('')
   }
 
   function handleSearchButtonClick(e: React.MouseEvent<HTMLButtonElement>) {
@@ -27,7 +26,6 @@ export default function SearchInput(): React.ReactNode {
 
     if (query.trim()) {
       router.push(`/search/${query}/1`)
-      setQuery('')
     } else {
       router.push('/search')
     }
