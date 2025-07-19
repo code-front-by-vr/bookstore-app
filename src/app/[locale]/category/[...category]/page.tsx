@@ -7,6 +7,9 @@ import ErrorMessage from '@/components/ui/error-message'
 import {ENDPOINTS} from '@/services/api/endpoints'
 import {getTranslations} from 'next-intl/server'
 
+export const dynamic = 'force-static'
+export const revalidate = 3600
+
 export async function generateStaticParams() {
   const categories = ['javascript', 'python', 'react', 'nodejs', 'java', 'php']
   const pagesPerCategory = 3
@@ -33,7 +36,9 @@ export default async function CategoryPage({
   const t = await getTranslations('category')
   const [category, currentPage = '1'] = resolvedParams.category
 
-  const res = await fetch(ENDPOINTS.search(category, currentPage))
+  const res = await fetch(ENDPOINTS.search(category, currentPage), {
+    next: {revalidate: 3600},
+  })
 
   if (!res.ok) {
     return <ErrorMessage error={res.statusText || 'Unknown error'} />
